@@ -213,31 +213,37 @@ Ines Wilms
 </section>
 <section class="slide level2">
 <h2>Where we are</h2>
-<table class="caption-top">
+<table class="caption-top" style="width:100%;">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 30%">
+<col style="width: 35%">
+<col style="width: 35%">
 </colgroup>
 <thead>
 <tr class="header">
+<th>Time</th>
 <th>Block</th>
 <th>Topic</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td>13:00–13:55</td>
 <td>1</td>
 <td>Getting started ✓</td>
 </tr>
 <tr class="even">
+<td><strong>13:55–14:50</strong></td>
 <td><strong>2</strong></td>
 <td><strong>Customization: memory, rules, settings, skills, hooks, MCP</strong></td>
 </tr>
 <tr class="odd">
+<td>15:05–16:00</td>
 <td>3</td>
 <td>Agentic coding</td>
 </tr>
 <tr class="even">
+<td>16:00–16:55</td>
 <td>4</td>
 <td>Optimal usage</td>
 </tr>
@@ -319,19 +325,6 @@ Ines Wilms
     ├── agents/&lt;name&gt;.md         project subagents
     └── hooks/                   hook scripts (registered in settings.json)</code></pre>
 </section>
-<section class="slide level2 scrollable">
-<h2>Which file wins</h2>
-<p>Settings, highest priority first:</p>
-<ol type="1">
-<li>Managed settings (set by an organisation)</li>
-<li>Command-line flags (<code>--settings</code>, <code>--model</code>, …)</li>
-<li><code>.claude/settings.local.json</code></li>
-<li><code>.claude/settings.json</code></li>
-<li><code>~/.claude/settings.json</code></li>
-</ol>
-<p>Lists such as <code>permissions.allow</code> are <strong>merged</strong> across files. A <code>deny</code> in any file beats an <code>allow</code> in any file.</p>
-<p>Memory files (<code>CLAUDE.md</code>) are all read and combined: user, then project, then subdirectories as Claude works in them.</p>
-</section>
 <section>
 <section class="title-slide slide level1 center" data-background-color="#001c3d">
 <h1>Memory: CLAUDE.md</h1>
@@ -395,15 +388,8 @@ Ines Wilms
 <span id="cb2-28"><a href=""></a><span class="ss">- </span>Do not invent references, page numbers or quotations. If you cannot find a source, say so.</span>
 <span id="cb2-29"><a href=""></a><span class="ss">- </span>Do not attribute a finding to a paper without quoting the sentence that supports it.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section class="slide level2">
-<h2>Imports and AGENTS.md</h2>
-<p>Keep CLAUDE.md short by importing other files:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href=""></a>See @README.md for the codebook and @docs/estimation-notes.md for the identification argument.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Paths are relative to the importing file; imports can be nested up to four levels.</p>
-<p><code>AGENTS.md</code> is a vendor-neutral memory file used by several coding agents. Claude Code reads it when there is no <code>CLAUDE.md</code>. For a project shared with users of other tools, keep the content in <code>AGENTS.md</code> and import it from <code>CLAUDE.md</code>.</p>
-</section>
 <section class="slide level2 lab scrollable">
-<h2>Lab 2.1 · Write your CLAUDE.md (15 min)</h2>
+<h2>Lab 2.1 · Write your CLAUDE.md (10 min)</h2>
 <ol type="1">
 <li><p>In <code>ck-project</code>, run <code>/init</code>. Read what Claude drafted.</p></li>
 <li><p>Rewrite it <strong>yourself</strong> using the example as a guide. Delete everything generic.</p></li>
@@ -417,68 +403,27 @@ Ines Wilms
 </section></section>
 <section>
 <section class="title-slide slide level1 center" data-background-color="#001c3d">
-<h1>Rules and auto memory</h1>
+<h1>Rules</h1>
 
 </section>
 <section class="slide level2">
 <h2>Rules: instructions for some files only</h2>
 <p>Files in <code>.claude/rules/</code> are memory that can be scoped to paths:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href=""></a><span class="co">---</span></span>
-<span id="cb4-2"><a href=""></a><span class="an">paths:</span></span>
-<span id="cb4-3"><a href=""></a><span class="co">  - "review/**"</span></span>
-<span id="cb4-4"><a href=""></a><span class="co">---</span></span>
-<span id="cb4-5"><a href=""></a></span>
-<span id="cb4-6"><a href=""></a><span class="fu"># Writing the review</span></span>
-<span id="cb4-7"><a href=""></a></span>
-<span id="cb4-8"><a href=""></a><span class="ss">- </span>Cite only entries that exist in review/refs.bib, with the Quarto syntax <span class="co">[</span><span class="ot">@key</span><span class="co">]</span>.</span>
-<span id="cb4-9"><a href=""></a><span class="ss">- </span>Every sentence that attributes a finding to a paper needs a source you have read</span>
-<span id="cb4-10"><a href=""></a>  (abstract at least). If you only know it from memory, mark it <span class="co">[</span><span class="ot">CHECK</span><span class="co">]</span>.</span>
-<span id="cb4-11"><a href=""></a><span class="ss">- </span>Every number comes from a file in output/; name the file in a comment.</span>
-<span id="cb4-12"><a href=""></a><span class="ss">- </span>Write in plain academic prose. No bullet points in the review text.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href=""></a><span class="co">---</span></span>
+<span id="cb3-2"><a href=""></a><span class="an">paths:</span></span>
+<span id="cb3-3"><a href=""></a><span class="co">  - "review/**"</span></span>
+<span id="cb3-4"><a href=""></a><span class="co">---</span></span>
+<span id="cb3-5"><a href=""></a></span>
+<span id="cb3-6"><a href=""></a><span class="fu"># Writing the review</span></span>
+<span id="cb3-7"><a href=""></a></span>
+<span id="cb3-8"><a href=""></a><span class="ss">- </span>Cite only entries that exist in review/refs.bib, with the Quarto syntax <span class="co">[</span><span class="ot">@key</span><span class="co">]</span>.</span>
+<span id="cb3-9"><a href=""></a><span class="ss">- </span>Every sentence that attributes a finding to a paper needs a source you have read</span>
+<span id="cb3-10"><a href=""></a>  (abstract at least). If you only know it from memory, mark it <span class="co">[</span><span class="ot">CHECK</span><span class="co">]</span>.</span>
+<span id="cb3-11"><a href=""></a><span class="ss">- </span>Every number comes from a file in output/; name the file in a comment.</span>
+<span id="cb3-12"><a href=""></a><span class="ss">- </span>Write in plain academic prose. No bullet points in the review text.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>A second rule could hold estimation conventions for <code>R/**</code> (state the estimand, print N after every filter or merge, standard errors as in the paper).</p>
 <p>Without <code>paths:</code> a rule is read every session, like CLAUDE.md. With <code>paths:</code> it is read only when Claude works on matching files, which saves context.</p>
 <p><code>~/.claude/rules/</code> holds rules for all your projects.</p>
-</section>
-<section class="slide level2">
-<h2>Auto memory</h2>
-<p>Claude Code can also keep its own notes about you and the project:</p>
-<ul>
-<li>stored in <code>~/.claude/projects/&lt;project&gt;/memory/</code>, index file <code>MEMORY.md</code></li>
-<li>the first 200 lines (or 25 KB) of the index are read every session</li>
-<li>Claude writes entries when you correct it or state a preference</li>
-</ul>
-<p>Review it now and then with <code>/memory</code>. Delete wrong entries. Turn it off in <code>/memory</code> if you prefer to control everything in CLAUDE.md.</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th>CLAUDE.md</th>
-<th>Auto memory</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Written by</td>
-<td>you</td>
-<td>Claude</td>
-</tr>
-<tr class="even">
-<td>Shared via git</td>
-<td>yes</td>
-<td>no (on your machine)</td>
-</tr>
-<tr class="odd">
-<td>Use for</td>
-<td>the project’s design and conventions</td>
-<td>your preferences, corrections</td>
-</tr>
-</tbody>
-</table>
 </section></section>
 <section>
 <section class="title-slide slide level1 center" data-background-color="#001c3d">
@@ -487,73 +432,29 @@ Ines Wilms
 </section>
 <section class="slide level2">
 <h2>settings.json</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a href=""></a><span class="fu">{</span></span>
-<span id="cb5-2"><a href=""></a>  <span class="dt">"permissions"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb5-3"><a href=""></a>    <span class="dt">"defaultMode"</span><span class="fu">:</span> <span class="st">"plan"</span><span class="fu">,</span></span>
-<span id="cb5-4"><a href=""></a>    <span class="dt">"allow"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb5-5"><a href=""></a>      <span class="st">"Bash(Rscript *)"</span><span class="ot">,</span></span>
-<span id="cb5-6"><a href=""></a>      <span class="st">"Bash(git status)"</span><span class="ot">,</span></span>
-<span id="cb5-7"><a href=""></a>      <span class="st">"Bash(git diff *)"</span><span class="ot">,</span></span>
-<span id="cb5-8"><a href=""></a>      <span class="st">"Bash(git log *)"</span></span>
-<span id="cb5-9"><a href=""></a>    <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb5-10"><a href=""></a>    <span class="dt">"ask"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb5-11"><a href=""></a>      <span class="st">"Bash(git commit *)"</span></span>
-<span id="cb5-12"><a href=""></a>    <span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb5-13"><a href=""></a>    <span class="dt">"deny"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb5-14"><a href=""></a>      <span class="st">"Read(./data/private/**)"</span><span class="ot">,</span></span>
-<span id="cb5-15"><a href=""></a>      <span class="st">"Read(./.env)"</span><span class="ot">,</span></span>
-<span id="cb5-16"><a href=""></a>      <span class="st">"Bash(git push *)"</span><span class="ot">,</span></span>
-<span id="cb5-17"><a href=""></a>      <span class="st">"Bash(rm -rf *)"</span></span>
-<span id="cb5-18"><a href=""></a>    <span class="ot">]</span></span>
-<span id="cb5-19"><a href=""></a>  <span class="fu">},</span></span>
-<span id="cb5-20"><a href=""></a>  <span class="dt">"model"</span><span class="fu">:</span> <span class="st">"opus"</span><span class="fu">,</span></span>
-<span id="cb5-21"><a href=""></a>  <span class="dt">"effortLevel"</span><span class="fu">:</span> <span class="st">"medium"</span></span>
-<span id="cb5-22"><a href=""></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href=""></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href=""></a>  <span class="dt">"permissions"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-3"><a href=""></a>    <span class="dt">"defaultMode"</span><span class="fu">:</span> <span class="st">"plan"</span><span class="fu">,</span></span>
+<span id="cb4-4"><a href=""></a>    <span class="dt">"allow"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb4-5"><a href=""></a>      <span class="st">"Bash(Rscript *)"</span><span class="ot">,</span></span>
+<span id="cb4-6"><a href=""></a>      <span class="st">"Bash(git status)"</span><span class="ot">,</span></span>
+<span id="cb4-7"><a href=""></a>      <span class="st">"Bash(git diff *)"</span><span class="ot">,</span></span>
+<span id="cb4-8"><a href=""></a>      <span class="st">"Bash(git log *)"</span></span>
+<span id="cb4-9"><a href=""></a>    <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb4-10"><a href=""></a>    <span class="dt">"ask"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb4-11"><a href=""></a>      <span class="st">"Bash(git commit *)"</span></span>
+<span id="cb4-12"><a href=""></a>    <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb4-13"><a href=""></a>    <span class="dt">"deny"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb4-14"><a href=""></a>      <span class="st">"Read(./data/private/**)"</span><span class="ot">,</span></span>
+<span id="cb4-15"><a href=""></a>      <span class="st">"Read(./.env)"</span><span class="ot">,</span></span>
+<span id="cb4-16"><a href=""></a>      <span class="st">"Bash(git push *)"</span><span class="ot">,</span></span>
+<span id="cb4-17"><a href=""></a>      <span class="st">"Bash(rm -rf *)"</span></span>
+<span id="cb4-18"><a href=""></a>    <span class="ot">]</span></span>
+<span id="cb4-19"><a href=""></a>  <span class="fu">},</span></span>
+<span id="cb4-20"><a href=""></a>  <span class="dt">"model"</span><span class="fu">:</span> <span class="st">"opus"</span><span class="fu">,</span></span>
+<span id="cb4-21"><a href=""></a>  <span class="dt">"effortLevel"</span><span class="fu">:</span> <span class="st">"medium"</span></span>
+<span id="cb4-22"><a href=""></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Order of evaluation: <strong>deny</strong>, then <strong>ask</strong>, then <strong>allow</strong>. The first match decides.</p>
-</section>
-<section class="slide level2">
-<h2>Permission rule syntax</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Rule</th>
-<th>Matches</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>Bash(Rscript *)</code></td>
-<td>any command starting with <code>Rscript</code></td>
-</tr>
-<tr class="even">
-<td><code>Bash(ls *)</code></td>
-<td><code>ls -la</code>, but not <code>lsof</code> (the space matters)</td>
-</tr>
-<tr class="odd">
-<td><code>Read(./.env)</code></td>
-<td>the file <code>.env</code> in the project</td>
-</tr>
-<tr class="even">
-<td><code>Edit(/R/**)</code></td>
-<td>any file under <code>R/</code>, anchored at the project root</td>
-</tr>
-<tr class="odd">
-<td><code>Read(~/.ssh/**)</code></td>
-<td>your SSH keys</td>
-</tr>
-<tr class="even">
-<td><code>WebFetch(domain:aeaweb.org)</code></td>
-<td>fetching pages from that domain</td>
-</tr>
-<tr class="odd">
-<td><code>mcp__github__create_issue</code></td>
-<td>one tool of an MCP server</td>
-</tr>
-</tbody>
-</table>
-<p>For your language:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href=""></a><span class="er">"allow":</span> <span class="ot">[</span><span class="st">"Bash(Rscript *)"</span><span class="ot">,</span> <span class="st">"Bash(stata-mp -b do *)"</span><span class="ot">,</span> <span class="st">"Bash(python *)"</span><span class="ot">,</span> <span class="st">"Bash(quarto render *)"</span><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><code>/fewer-permission-prompts</code> scans your past sessions and proposes allow rules for safe, frequent commands.</p>
 </section>
 <section class="slide level2 scrollable">
 <h2>Permissions are not a security boundary</h2>
@@ -565,21 +466,6 @@ Ines Wilms
 <li>You run the final code yourself in the secure environment</li>
 </ol>
 <p>The <strong>sandbox</strong> (<code>/sandbox</code>, or <code>"sandbox": {"enabled": true}</code>) restricts file and network access of shell commands at the operating-system level (macOS, Linux, WSL2; not native Windows). It covers commands Claude runs, not Claude’s own file tools, which follow the permission rules.</p>
-</section>
-<section class="slide level2 lab scrollable">
-<h2>Lab 2.2 · Permissions (10 min)</h2>
-<ol type="1">
-<li>Create <code>ck-project/.claude/settings.json</code> with:
-<ul>
-<li><code>defaultMode: plan</code></li>
-<li>allow <code>Rscript</code></li>
-<li>deny reading <code>data/private/**</code></li>
-</ul></li>
-<li>Create <code>data/private/secret.csv</code> with one line of made-up text</li>
-<li>Ask Claude to read it. What happens?</li>
-<li>Ask Claude to show it with a shell command. What happens? What does that tell you?</li>
-<li>Delete <code>data/private/secret.csv</code>.</li>
-</ol>
 </section></section>
 <section>
 <section class="title-slide slide level1 center" data-background-color="#001c3d">
@@ -603,74 +489,25 @@ Ines Wilms
 </section>
 <section class="slide level2">
 <h2>Anatomy of SKILL.md</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href=""></a><span class="co">---</span></span>
-<span id="cb8-2"><a href=""></a><span class="an">name:</span><span class="co"> verify-citations</span></span>
-<span id="cb8-3"><a href=""></a><span class="an">description:</span><span class="co"> Check every entry of a .bib file against Crossref or OpenAlex. Use before</span></span>
-<span id="cb8-4"><a href=""></a><span class="co">  references are cited in the review, or when the user asks to check references.</span></span>
-<span id="cb8-5"><a href=""></a><span class="an">argument-hint:</span><span class="co"> &lt;path to .bib file&gt;</span></span>
-<span id="cb8-6"><a href=""></a><span class="an">allowed-tools:</span><span class="co"> Read, Grep, Glob, WebFetch</span></span>
-<span id="cb8-7"><a href=""></a><span class="an">effort:</span><span class="co"> high</span></span>
-<span id="cb8-8"><a href=""></a><span class="co">---</span></span>
-<span id="cb8-9"><a href=""></a></span>
-<span id="cb8-10"><a href=""></a>Check every entry in $ARGUMENTS.</span>
-<span id="cb8-11"><a href=""></a></span>
-<span id="cb8-12"><a href=""></a><span class="ss">1. </span>If the entry has a DOI: fetch https://api.crossref.org/works/&lt;DOI&gt; and compare</span>
-<span id="cb8-13"><a href=""></a>   authors, year, title, journal, volume and pages with the entry.</span>
-<span id="cb8-14"><a href=""></a><span class="ss">2. </span>If it has no DOI: search https://api.crossref.org/works?query.bibliographic=&lt;title+authors&gt;</span>
-<span id="cb8-15"><a href=""></a>   and https://api.openalex.org/works?search=&lt;title&gt;; report the best match and whether</span>
-<span id="cb8-16"><a href=""></a>   it is the same publication (a working paper or a comment with the same title is not).</span>
-<span id="cb8-17"><a href=""></a><span class="ss">3. </span>Never complete a missing field from memory.</span>
-<span id="cb8-18"><a href=""></a><span class="ss">4. </span>Report a table: key, field, entry says, source says, OK / WRONG / NOT FOUND.</span>
-<span id="cb8-19"><a href=""></a>   Do not change the .bib file. List proposed corrections separately.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section class="slide level2">
-<h2>Frontmatter fields</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 43%">
-<col style="width: 56%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>name</code>, <code>description</code></td>
-<td>the command name; when Claude should use it (write this carefully)</td>
-</tr>
-<tr class="even">
-<td><code>argument-hint</code></td>
-<td>shown when you type the command</td>
-</tr>
-<tr class="odd">
-<td><code>$ARGUMENTS</code>, <code>$0</code>, <code>$1</code></td>
-<td>the arguments you pass: all, first, second</td>
-</tr>
-<tr class="even">
-<td><code>allowed-tools</code></td>
-<td>tools the skill may use without asking</td>
-</tr>
-<tr class="odd">
-<td><code>disable-model-invocation: true</code></td>
-<td>only you can start it (for commit, deploy, anything with side effects)</td>
-</tr>
-<tr class="even">
-<td><code>model</code>, <code>effort</code></td>
-<td>run the skill on a specific model or effort level</td>
-</tr>
-<tr class="odd">
-<td><code>context: fork</code></td>
-<td>run the skill in a separate subagent context</td>
-</tr>
-<tr class="even">
-<td><code>paths</code></td>
-<td>offer the skill only for matching files</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href=""></a><span class="co">---</span></span>
+<span id="cb6-2"><a href=""></a><span class="an">name:</span><span class="co"> verify-citations</span></span>
+<span id="cb6-3"><a href=""></a><span class="an">description:</span><span class="co"> Check every entry of a .bib file against Crossref or OpenAlex. Use before</span></span>
+<span id="cb6-4"><a href=""></a><span class="co">  references are cited in the review, or when the user asks to check references.</span></span>
+<span id="cb6-5"><a href=""></a><span class="an">argument-hint:</span><span class="co"> &lt;path to .bib file&gt;</span></span>
+<span id="cb6-6"><a href=""></a><span class="an">allowed-tools:</span><span class="co"> Read, Grep, Glob, WebFetch</span></span>
+<span id="cb6-7"><a href=""></a><span class="an">effort:</span><span class="co"> high</span></span>
+<span id="cb6-8"><a href=""></a><span class="co">---</span></span>
+<span id="cb6-9"><a href=""></a></span>
+<span id="cb6-10"><a href=""></a>Check every entry in $ARGUMENTS.</span>
+<span id="cb6-11"><a href=""></a></span>
+<span id="cb6-12"><a href=""></a><span class="ss">1. </span>If the entry has a DOI: fetch https://api.crossref.org/works/&lt;DOI&gt; and compare</span>
+<span id="cb6-13"><a href=""></a>   authors, year, title, journal, volume and pages with the entry.</span>
+<span id="cb6-14"><a href=""></a><span class="ss">2. </span>If it has no DOI: search https://api.crossref.org/works?query.bibliographic=&lt;title+authors&gt;</span>
+<span id="cb6-15"><a href=""></a>   and https://api.openalex.org/works?search=&lt;title&gt;; report the best match and whether</span>
+<span id="cb6-16"><a href=""></a>   it is the same publication (a working paper or a comment with the same title is not).</span>
+<span id="cb6-17"><a href=""></a><span class="ss">3. </span>Never complete a missing field from memory.</span>
+<span id="cb6-18"><a href=""></a><span class="ss">4. </span>Report a table: key, field, entry says, source says, OK / WRONG / NOT FOUND.</span>
+<span id="cb6-19"><a href=""></a>   Do not change the .bib file. List proposed corrections separately.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section class="slide level2">
 <h2>Writing a good description</h2>
@@ -747,256 +584,62 @@ Ines Wilms
 <p>Bundled skills to try: <code>/code-review</code>, <code>/simplify</code>, <code>/debug</code>, <code>/loop</code>, <code>/doctor</code>, <code>/skill-doctor</code> (context cost and use of each skill).</p>
 </section>
 <section class="slide level2 lab scrollable">
-<h2>Lab 2.3 · Write two skills (25 min)</h2>
+<h2>Lab 2.3 · Write a skill (15 min)</h2>
 <ol type="1">
 <li>Write <code>/verify-citations</code> (start from the example). Add three references you know to <code>review/refs.bib</code> from memory, with DOIs if you know them, and run <code>/verify-citations review/refs.bib</code>. Which fields were wrong?</li>
-<li>Write <code>/lit-search</code>: given a topic, query <code>https://api.openalex.org/works?filter=title_and_abstract.search:&lt;topic&gt;&amp;sort=cited_by_count:desc&amp;per-page=15</code>, return a table (authors, year, title, journal, DOI, citations), and save it to <code>review/candidates.csv</code>. Run <code>/lit-search minimum wage employment</code>. Which results do not belong in your review?</li>
 <li><code>/clear</code> and ask in plain words: <em>Are the references in my bibliography correct?</em> Does Claude use your skill? If not, improve the description.</li>
 </ol>
+<p>At home: write <code>/lit-search</code> (section “At home” at the end of this deck).</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center" data-background-color="#001c3d">
-<h1>Subagent definitions</h1>
+<h1>More options</h1>
 
 </section>
 <section class="slide level2">
-<h2>Subagents: the configuration</h2>
-<p>A <strong>subagent</strong> is a separate Claude with its own context, tools and model. Its definition is one file:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href=""></a><span class="co">---</span></span>
-<span id="cb9-2"><a href=""></a><span class="an">name:</span><span class="co"> econometrics-referee</span></span>
-<span id="cb9-3"><a href=""></a><span class="an">description:</span><span class="co"> Referee report on identification, inference and interpretation.</span></span>
-<span id="cb9-4"><a href=""></a><span class="co">  Use after estimates are produced and before results are written up.</span></span>
-<span id="cb9-5"><a href=""></a><span class="an">tools:</span><span class="co"> Read, Grep, Glob</span></span>
-<span id="cb9-6"><a href=""></a><span class="an">model:</span><span class="co"> opus</span></span>
-<span id="cb9-7"><a href=""></a><span class="an">effort:</span><span class="co"> high</span></span>
-<span id="cb9-8"><a href=""></a><span class="co">---</span></span>
-<span id="cb9-9"><a href=""></a></span>
-<span id="cb9-10"><a href=""></a>You are a referee for a field journal in applied microeconomics. You read the code</span>
-<span id="cb9-11"><a href=""></a>and the results, and you do not edit files.</span>
-<span id="cb9-12"><a href=""></a></span>
-<span id="cb9-13"><a href=""></a>Report, citing file:line for each point:</span>
-<span id="cb9-14"><a href=""></a><span class="ss">1. </span>Major concerns: issues that change a conclusion (identification, inference, sample).</span>
-<span id="cb9-15"><a href=""></a><span class="ss">2. </span>Minor concerns.</span>
-<span id="cb9-16"><a href=""></a><span class="ss">3. </span>What you checked and found no problem with.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Other fields: <code>disallowedTools</code>, <code>permissionMode</code>, <code>maxTurns</code>, <code>skills</code>, <code>isolation: worktree</code>, <code>background</code>, <code>memory</code>. <code>/agents</code> lists them. How and when to use them: Block 3.</p>
-</section></section>
-<section>
-<section class="title-slide slide level1 center" data-background-color="#001c3d">
-<h1>Hooks</h1>
-
-</section>
-<section class="slide level2">
-<h2>Hooks: code that always runs</h2>
-<p>Instructions in CLAUDE.md are followed most of the time. A <strong>hook</strong> is a command that the program runs on an event, every time, whatever the model decides.</p>
+<h2>More options: subagents, hooks, MCP, plugins</h2>
 <table class="caption-top">
 <colgroup>
-<col style="width: 31%">
-<col style="width: 27%">
-<col style="width: 40%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 54%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Event</th>
-<th>Runs</th>
-<th>Example</th>
+<th>Mechanism</th>
+<th>What it is</th>
+<th>Example for this project</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>PreToolUse</code></td>
-<td>before a tool call; can block it</td>
-<td>refuse to edit anything in <code>data/raw/</code></td>
+<td><strong>Subagent</strong> (<code>.claude/agents/&lt;name&gt;.md</code>)</td>
+<td>a separate Claude with its own context, tools and model</td>
+<td>a read-only citation verifier (Block 3)</td>
 </tr>
 <tr class="even">
-<td><code>PostToolUse</code></td>
-<td>after a tool call</td>
-<td>check that an edited R file still parses</td>
+<td><strong>Hook</strong> (<code>hooks</code> in settings.json)</td>
+<td>a command Claude Code runs on an event, every time</td>
+<td>a <code>Stop</code> hook that blocks the end of a turn until every citation key is in <code>refs.bib</code></td>
 </tr>
 <tr class="odd">
-<td><code>UserPromptSubmit</code></td>
-<td>when you send a message</td>
-<td>add today’s date or the git branch</td>
+<td><strong>MCP server</strong></td>
+<td>tools of another program: GitHub, a database, a reference manager</td>
+<td>a Zotero or database connection</td>
 </tr>
 <tr class="even">
-<td><code>Stop</code></td>
-<td>when Claude finishes its turn</td>
-<td>remind to write a session log</td>
+<td><strong>Plugin</strong></td>
+<td>a bundle of skills, agents, hooks, MCP servers</td>
+<td>your group’s skills, installed in one step</td>
 </tr>
 <tr class="odd">
-<td><code>SessionStart</code></td>
-<td>at the start of a session</td>
-<td>print open TODOs</td>
-</tr>
-<tr class="even">
-<td><code>PreCompact</code></td>
-<td>before the context is compressed</td>
-<td>save a snapshot of the current task</td>
-</tr>
-<tr class="odd">
-<td><code>Notification</code></td>
-<td>when Claude waits for you</td>
-<td>desktop notification</td>
+<td><strong>Output style</strong></td>
+<td>how Claude writes its replies</td>
+<td><em>Learning</em>: leaves parts for you to write</td>
 </tr>
 </tbody>
 </table>
-<p>About 30 events in total; see the hooks reference.</p>
-</section>
-<section class="slide level2">
-<h2>Registering a hook</h2>
-<p>In <code>.claude/settings.json</code>:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb10-1"><a href=""></a><span class="fu">{</span></span>
-<span id="cb10-2"><a href=""></a>  <span class="dt">"hooks"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb10-3"><a href=""></a>    <span class="dt">"PostToolUse"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb10-4"><a href=""></a>      <span class="fu">{</span></span>
-<span id="cb10-5"><a href=""></a>        <span class="dt">"matcher"</span><span class="fu">:</span> <span class="st">"Edit|Write"</span><span class="fu">,</span></span>
-<span id="cb10-6"><a href=""></a>        <span class="dt">"hooks"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb10-7"><a href=""></a>          <span class="fu">{</span> <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"command"</span><span class="fu">,</span></span>
-<span id="cb10-8"><a href=""></a>            <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"</span><span class="ch">\"</span><span class="st">$CLAUDE_PROJECT_DIR</span><span class="ch">\"</span><span class="st">/.claude/hooks/check-r-syntax.sh"</span> <span class="fu">}</span></span>
-<span id="cb10-9"><a href=""></a>        <span class="ot">]</span></span>
-<span id="cb10-10"><a href=""></a>      <span class="fu">}</span></span>
-<span id="cb10-11"><a href=""></a>    <span class="ot">]</span></span>
-<span id="cb10-12"><a href=""></a>  <span class="fu">}</span></span>
-<span id="cb10-13"><a href=""></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The script receives the event as JSON on standard input (tool name, file path, …).</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 57%">
-<col style="width: 42%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Exit code</th>
-<th>Effect</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0</td>
-<td>fine; JSON on stdout is read if present</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>blocking error: stderr goes back to Claude (blocks the action for <code>PreToolUse</code>, <code>Stop</code>, …)</td>
-</tr>
-<tr class="odd">
-<td>other</td>
-<td>non-blocking error, shown to you</td>
-</tr>
-</tbody>
-</table>
-<p><code>/hooks</code> shows the registered hooks.</p>
-</section>
-<section class="slide level2">
-<h2>Example hook: R syntax check</h2>
-<p><code>.claude/hooks/check-r-syntax.sh</code>:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href=""></a><span class="co">#!/bin/sh</span></span>
-<span id="cb11-2"><a href=""></a><span class="co"># After Claude edits an .R file, check that it still parses.</span></span>
-<span id="cb11-3"><a href=""></a><span class="va">f</span><span class="op">=</span><span class="va">$(</span><span class="fu">sed</span> <span class="at">-n</span> <span class="st">'s/.*"file_path" *: *"\([^"]*\)".*/\1/p'</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-1</span><span class="va">)</span></span>
-<span id="cb11-4"><a href=""></a><span class="cf">case</span> <span class="st">"</span><span class="va">$f</span><span class="st">"</span> <span class="kw">in</span></span>
-<span id="cb11-5"><a href=""></a>  <span class="pp">*</span><span class="ss">.R</span><span class="kw">|</span><span class="pp">*</span><span class="ss">.r</span><span class="kw">)</span></span>
-<span id="cb11-6"><a href=""></a>    <span class="cf">if</span> <span class="ot">! </span><span class="va">err</span><span class="op">=</span><span class="va">$(</span><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"invisible(parse(file = '</span><span class="va">$f</span><span class="st">'))"</span> <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="va">)</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb11-7"><a href=""></a>      <span class="bu">echo</span> <span class="st">"R syntax error in </span><span class="va">$f</span><span class="st">: </span><span class="va">$err</span><span class="st">"</span> <span class="op">&gt;&amp;</span><span class="dv">2</span></span>
-<span id="cb11-8"><a href=""></a>      <span class="bu">exit</span> 2</span>
-<span id="cb11-9"><a href=""></a>    <span class="cf">fi</span> <span class="cf">;;</span></span>
-<span id="cb11-10"><a href=""></a><span class="cf">esac</span></span>
-<span id="cb11-11"><a href=""></a><span class="bu">exit</span> 0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Claude sees the error and fixes it in the next step, without you asking.</p>
-</section>
-<section class="slide level2">
-<h2>A Stop hook: give Claude a check it cannot skip</h2>
-<p>Claude stops when the work <strong>looks</strong> done. A <code>Stop</code> hook runs when Claude tries to end its turn; exit code 2 sends it back to work, with your script’s stderr as the reason.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb12-1"><a href=""></a><span class="fu">{</span></span>
-<span id="cb12-2"><a href=""></a>  <span class="dt">"hooks"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb12-3"><a href=""></a>    <span class="dt">"Stop"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb12-4"><a href=""></a>      <span class="fu">{</span> <span class="dt">"hooks"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb12-5"><a href=""></a>          <span class="fu">{</span> <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"command"</span><span class="fu">,</span></span>
-<span id="cb12-6"><a href=""></a>            <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"Rscript </span><span class="ch">\"</span><span class="st">$CLAUDE_PROJECT_DIR</span><span class="ch">\"</span><span class="st">/R/checks.R 1&gt;&amp;2 || exit 2"</span> <span class="fu">}</span></span>
-<span id="cb12-7"><a href=""></a>      <span class="ot">]</span> <span class="fu">}</span></span>
-<span id="cb12-8"><a href=""></a>    <span class="ot">]</span></span>
-<span id="cb12-9"><a href=""></a>  <span class="fu">}</span></span>
-<span id="cb12-10"><a href=""></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><code>R/checks.R</code> contains <code>stopifnot()</code> assertions: <code>output/table3.csv</code> exists and matches the targets in CLAUDE.md within 0.01; every <code>[@key]</code> in <code>review/review.qmd</code> has an entry in <code>review/refs.bib</code>. Claude cannot finish while one fails.</p>
-<p>Lighter versions of the same idea: say “run R/checks.R and keep going until it passes” in the prompt, or set <code>/goal R/checks.R passes</code> (a separate model checks the condition after each turn).</p>
-<p>Keep hooks fast and narrow (a matcher, a file-type check). A slow hook on every tool call slows every step of every session.</p>
-</section></section>
-<section>
-<section class="title-slide slide level1 center" data-background-color="#001c3d">
-<h1>MCP, plugins, output styles</h1>
-
-</section>
-<section class="slide level2">
-<h2>MCP: connecting other programs</h2>
-<p>The <strong>Model Context Protocol</strong> lets Claude use tools of other programs: GitHub, a database, a reference manager, a Stata session, a browser.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href=""></a><span class="co"># a remote server over HTTP</span></span>
-<span id="cb13-2"><a href=""></a><span class="ex">claude</span> mcp add <span class="at">--transport</span> http github https://api.githubcopilot.com/mcp/</span>
-<span id="cb13-3"><a href=""></a></span>
-<span id="cb13-4"><a href=""></a><span class="co"># a local program</span></span>
-<span id="cb13-5"><a href=""></a><span class="ex">claude</span> mcp add <span class="at">--transport</span> stdio mydb <span class="at">--</span> python my_db_server.py</span>
-<span id="cb13-6"><a href=""></a></span>
-<span id="cb13-7"><a href=""></a><span class="ex">claude</span> mcp list          <span class="co"># what is configured</span></span>
-<span id="cb13-8"><a href=""></a><span class="ex">/mcp</span>                     <span class="co"># status inside a session</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Scopes: <code>local</code> (you, this project; default), <code>project</code> (<code>.mcp.json</code>, committed), <code>user</code> (all your projects).</p>
-<p>An MCP server is a program you run, with your permissions. Install only servers you trust. Text returned by a server (web pages, PDFs, emails) can contain instructions; treat it as data.</p>
-</section>
-<section class="slide level2">
-<h2>Plugins</h2>
-<p>A <strong>plugin</strong> bundles skills, subagents, hooks and MCP servers, so they can be installed in one step.</p>
-<pre><code>/plugin                                          browse and install
-/plugin install commit-commands@claude-plugins-official</code></pre>
-<ul>
-<li>Marketplaces are Git repositories that list plugins; Anthropic runs an official one</li>
-<li>Install for yourself (user), the project (shared), or locally</li>
-<li>A plugin runs code on your machine: same caution as MCP</li>
-</ul>
-<p>You can package your own skills and agents as a plugin to share them with your research group.</p>
-</section>
-<section class="slide level2 lab scrollable">
-<h2>Lab 2.4 · A check Claude cannot skip (optional, 10 min)</h2>
-<ol type="1">
-<li>Ask Claude to write <code>R/checks.R</code>: <code>stopifnot()</code> assertions that <code>output/table3.csv</code> matches the Table 3 targets in CLAUDE.md within 0.01, and that every citation key in <code>review/review.qmd</code> is in <code>review/refs.bib</code>.</li>
-<li>Register it as a <code>Stop</code> hook (previous slide). Restart the session; <code>/hooks</code> should list it.</li>
-<li>Ask for a change that breaks an assertion (e.g.&nbsp;“add a sentence to the review citing Neumark and Wascher (2008)” without adding it to refs.bib). Watch what happens when Claude tries to finish.</li>
-<li>Remove or keep the hook. Would you want it on every turn in your own project? What would it cost?</li>
-</ol>
-</section>
-<section class="slide level2">
-<h2>Output styles and the status line</h2>
-<p><strong>Output styles</strong> change how Claude writes its replies (<code>/output-style</code>):</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 46%">
-<col style="width: 53%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Style</th>
-<th>Effect</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Default</td>
-<td>standard</td>
-</tr>
-<tr class="even">
-<td>Concise</td>
-<td>result first, no preamble</td>
-</tr>
-<tr class="odd">
-<td>Explanatory</td>
-<td>adds short “Insight” notes on its choices; good while learning</td>
-</tr>
-<tr class="even">
-<td>Learning</td>
-<td>leaves parts for you to write (<code>TODO(human)</code>); good for learning R or Stata</td>
-</tr>
-<tr class="odd">
-<td>Proactive</td>
-<td>starts implementing at once; works against plan-first</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Status line</strong>: a line below the prompt showing, for example, model, mode, context use and git branch. <code>/statusline</code> writes one from a description: “show model, permission mode and context percentage”.</p>
+<p>Details and two labs: section “At home” at the end of this deck.</p>
 </section>
 <section class="slide level2">
 <h2>What we covered</h2>
@@ -1057,6 +700,413 @@ Ines Wilms
 </tbody>
 </table>
 <p><strong>Next block:</strong> from asking Claude to do one task, to delegating work to several agents and checking it.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center" data-background-color="#001c3d">
+<h1>At home</h1>
+
+</section>
+<section class="slide level2">
+<h2>Lab 2.3b · A search skill · at home</h2>
+<p>Write <code>/lit-search</code>: given a topic, query <code>https://api.openalex.org/works?filter=title_and_abstract.search:&lt;topic&gt;&amp;sort=cited_by_count:desc&amp;per-page=15</code>, return a table (authors, year, title, journal, DOI, citations), and save it to <code>review/candidates.csv</code>. Run <code>/lit-search minimum wage employment</code>. Which results do not belong in your review?</p>
+</section>
+<section class="slide level2 scrollable">
+<h2>Which file wins · at home</h2>
+<p>Settings, highest priority first:</p>
+<ol type="1">
+<li>Managed settings (set by an organisation)</li>
+<li>Command-line flags (<code>--settings</code>, <code>--model</code>, …)</li>
+<li><code>.claude/settings.local.json</code></li>
+<li><code>.claude/settings.json</code></li>
+<li><code>~/.claude/settings.json</code></li>
+</ol>
+<p>Lists such as <code>permissions.allow</code> are <strong>merged</strong> across files. A <code>deny</code> in any file beats an <code>allow</code> in any file.</p>
+<p>Memory files (<code>CLAUDE.md</code>) are all read and combined: user, then project, then subdirectories as Claude works in them.</p>
+</section>
+<section class="slide level2">
+<h2>Imports and AGENTS.md · at home</h2>
+<p>Keep CLAUDE.md short by importing other files:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href=""></a>See @README.md for the codebook and @docs/estimation-notes.md for the identification argument.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Paths are relative to the importing file; imports can be nested up to four levels.</p>
+<p><code>AGENTS.md</code> is a vendor-neutral memory file used by several coding agents. Claude Code reads it when there is no <code>CLAUDE.md</code>. For a project shared with users of other tools, keep the content in <code>AGENTS.md</code> and import it from <code>CLAUDE.md</code>.</p>
+</section>
+<section class="slide level2">
+<h2>Auto memory · at home</h2>
+<p>Claude Code can also keep its own notes about you and the project:</p>
+<ul>
+<li>stored in <code>~/.claude/projects/&lt;project&gt;/memory/</code>, index file <code>MEMORY.md</code></li>
+<li>the first 200 lines (or 25 KB) of the index are read every session</li>
+<li>Claude writes entries when you correct it or state a preference</li>
+</ul>
+<p>Review it now and then with <code>/memory</code>. Delete wrong entries. Turn it off in <code>/memory</code> if you prefer to control everything in CLAUDE.md.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>CLAUDE.md</th>
+<th>Auto memory</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Written by</td>
+<td>you</td>
+<td>Claude</td>
+</tr>
+<tr class="even">
+<td>Shared via git</td>
+<td>yes</td>
+<td>no (on your machine)</td>
+</tr>
+<tr class="odd">
+<td>Use for</td>
+<td>the project’s design and conventions</td>
+<td>your preferences, corrections</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+<h2>Permission rule syntax · at home</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Rule</th>
+<th>Matches</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Bash(Rscript *)</code></td>
+<td>any command starting with <code>Rscript</code></td>
+</tr>
+<tr class="even">
+<td><code>Bash(ls *)</code></td>
+<td><code>ls -la</code>, but not <code>lsof</code> (the space matters)</td>
+</tr>
+<tr class="odd">
+<td><code>Read(./.env)</code></td>
+<td>the file <code>.env</code> in the project</td>
+</tr>
+<tr class="even">
+<td><code>Edit(/R/**)</code></td>
+<td>any file under <code>R/</code>, anchored at the project root</td>
+</tr>
+<tr class="odd">
+<td><code>Read(~/.ssh/**)</code></td>
+<td>your SSH keys</td>
+</tr>
+<tr class="even">
+<td><code>WebFetch(domain:aeaweb.org)</code></td>
+<td>fetching pages from that domain</td>
+</tr>
+<tr class="odd">
+<td><code>mcp__github__create_issue</code></td>
+<td>one tool of an MCP server</td>
+</tr>
+</tbody>
+</table>
+<p>For your language:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb8-1"><a href=""></a><span class="er">"allow":</span> <span class="ot">[</span><span class="st">"Bash(Rscript *)"</span><span class="ot">,</span> <span class="st">"Bash(stata-mp -b do *)"</span><span class="ot">,</span> <span class="st">"Bash(python *)"</span><span class="ot">,</span> <span class="st">"Bash(quarto render *)"</span><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>/fewer-permission-prompts</code> scans your past sessions and proposes allow rules for safe, frequent commands.</p>
+</section>
+<section class="slide level2 scrollable">
+<h2>Lab 2.2 · Permissions (10 min) · at home</h2>
+<ol type="1">
+<li>Create <code>ck-project/.claude/settings.json</code> with:
+<ul>
+<li><code>defaultMode: plan</code></li>
+<li>allow <code>Rscript</code></li>
+<li>deny reading <code>data/private/**</code></li>
+</ul></li>
+<li>Create <code>data/private/secret.csv</code> with one line of made-up text</li>
+<li>Ask Claude to read it. What happens?</li>
+<li>Ask Claude to show it with a shell command. What happens? What does that tell you?</li>
+<li>Delete <code>data/private/secret.csv</code>.</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Frontmatter fields · at home</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>name</code>, <code>description</code></td>
+<td>the command name; when Claude should use it (write this carefully)</td>
+</tr>
+<tr class="even">
+<td><code>argument-hint</code></td>
+<td>shown when you type the command</td>
+</tr>
+<tr class="odd">
+<td><code>$ARGUMENTS</code>, <code>$0</code>, <code>$1</code></td>
+<td>the arguments you pass: all, first, second</td>
+</tr>
+<tr class="even">
+<td><code>allowed-tools</code></td>
+<td>tools the skill may use without asking</td>
+</tr>
+<tr class="odd">
+<td><code>disable-model-invocation: true</code></td>
+<td>only you can start it (for commit, deploy, anything with side effects)</td>
+</tr>
+<tr class="even">
+<td><code>model</code>, <code>effort</code></td>
+<td>run the skill on a specific model or effort level</td>
+</tr>
+<tr class="odd">
+<td><code>context: fork</code></td>
+<td>run the skill in a separate subagent context</td>
+</tr>
+<tr class="even">
+<td><code>paths</code></td>
+<td>offer the skill only for matching files</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+<h2>Subagents: the configuration · at home</h2>
+<p>A <strong>subagent</strong> is a separate Claude with its own context, tools and model. Its definition is one file:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href=""></a><span class="co">---</span></span>
+<span id="cb9-2"><a href=""></a><span class="an">name:</span><span class="co"> econometrics-referee</span></span>
+<span id="cb9-3"><a href=""></a><span class="an">description:</span><span class="co"> Referee report on identification, inference and interpretation.</span></span>
+<span id="cb9-4"><a href=""></a><span class="co">  Use after estimates are produced and before results are written up.</span></span>
+<span id="cb9-5"><a href=""></a><span class="an">tools:</span><span class="co"> Read, Grep, Glob</span></span>
+<span id="cb9-6"><a href=""></a><span class="an">model:</span><span class="co"> opus</span></span>
+<span id="cb9-7"><a href=""></a><span class="an">effort:</span><span class="co"> high</span></span>
+<span id="cb9-8"><a href=""></a><span class="co">---</span></span>
+<span id="cb9-9"><a href=""></a></span>
+<span id="cb9-10"><a href=""></a>You are a referee for a field journal in applied microeconomics. You read the code</span>
+<span id="cb9-11"><a href=""></a>and the results, and you do not edit files.</span>
+<span id="cb9-12"><a href=""></a></span>
+<span id="cb9-13"><a href=""></a>Report, citing file:line for each point:</span>
+<span id="cb9-14"><a href=""></a><span class="ss">1. </span>Major concerns: issues that change a conclusion (identification, inference, sample).</span>
+<span id="cb9-15"><a href=""></a><span class="ss">2. </span>Minor concerns.</span>
+<span id="cb9-16"><a href=""></a><span class="ss">3. </span>What you checked and found no problem with.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Other fields: <code>disallowedTools</code>, <code>permissionMode</code>, <code>maxTurns</code>, <code>skills</code>, <code>isolation: worktree</code>, <code>background</code>, <code>memory</code>. <code>/agents</code> lists them. How and when to use them: Block 3.</p>
+</section>
+<section class="slide level2">
+<h2>Hooks: code that always runs · at home</h2>
+<p>Instructions in CLAUDE.md are followed most of the time. A <strong>hook</strong> is a command that the program runs on an event, every time, whatever the model decides.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 27%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Event</th>
+<th>Runs</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>PreToolUse</code></td>
+<td>before a tool call; can block it</td>
+<td>refuse to edit anything in <code>data/raw/</code></td>
+</tr>
+<tr class="even">
+<td><code>PostToolUse</code></td>
+<td>after a tool call</td>
+<td>check that an edited R file still parses</td>
+</tr>
+<tr class="odd">
+<td><code>UserPromptSubmit</code></td>
+<td>when you send a message</td>
+<td>add today’s date or the git branch</td>
+</tr>
+<tr class="even">
+<td><code>Stop</code></td>
+<td>when Claude finishes its turn</td>
+<td>remind to write a session log</td>
+</tr>
+<tr class="odd">
+<td><code>SessionStart</code></td>
+<td>at the start of a session</td>
+<td>print open TODOs</td>
+</tr>
+<tr class="even">
+<td><code>PreCompact</code></td>
+<td>before the context is compressed</td>
+<td>save a snapshot of the current task</td>
+</tr>
+<tr class="odd">
+<td><code>Notification</code></td>
+<td>when Claude waits for you</td>
+<td>desktop notification</td>
+</tr>
+</tbody>
+</table>
+<p>About 30 events in total; see the hooks reference.</p>
+</section>
+<section class="slide level2">
+<h2>Registering a hook · at home</h2>
+<p>In <code>.claude/settings.json</code>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb10-1"><a href=""></a><span class="fu">{</span></span>
+<span id="cb10-2"><a href=""></a>  <span class="dt">"hooks"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb10-3"><a href=""></a>    <span class="dt">"PostToolUse"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb10-4"><a href=""></a>      <span class="fu">{</span></span>
+<span id="cb10-5"><a href=""></a>        <span class="dt">"matcher"</span><span class="fu">:</span> <span class="st">"Edit|Write"</span><span class="fu">,</span></span>
+<span id="cb10-6"><a href=""></a>        <span class="dt">"hooks"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb10-7"><a href=""></a>          <span class="fu">{</span> <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"command"</span><span class="fu">,</span></span>
+<span id="cb10-8"><a href=""></a>            <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"</span><span class="ch">\"</span><span class="st">$CLAUDE_PROJECT_DIR</span><span class="ch">\"</span><span class="st">/.claude/hooks/check-r-syntax.sh"</span> <span class="fu">}</span></span>
+<span id="cb10-9"><a href=""></a>        <span class="ot">]</span></span>
+<span id="cb10-10"><a href=""></a>      <span class="fu">}</span></span>
+<span id="cb10-11"><a href=""></a>    <span class="ot">]</span></span>
+<span id="cb10-12"><a href=""></a>  <span class="fu">}</span></span>
+<span id="cb10-13"><a href=""></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The script receives the event as JSON on standard input (tool name, file path, …).</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 57%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Exit code</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>fine; JSON on stdout is read if present</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>blocking error: stderr goes back to Claude (blocks the action for <code>PreToolUse</code>, <code>Stop</code>, …)</td>
+</tr>
+<tr class="odd">
+<td>other</td>
+<td>non-blocking error, shown to you</td>
+</tr>
+</tbody>
+</table>
+<p><code>/hooks</code> shows the registered hooks.</p>
+</section>
+<section class="slide level2">
+<h2>Example hook: R syntax check · at home</h2>
+<p><code>.claude/hooks/check-r-syntax.sh</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href=""></a><span class="co">#!/bin/sh</span></span>
+<span id="cb11-2"><a href=""></a><span class="co"># After Claude edits an .R file, check that it still parses.</span></span>
+<span id="cb11-3"><a href=""></a><span class="va">f</span><span class="op">=</span><span class="va">$(</span><span class="fu">sed</span> <span class="at">-n</span> <span class="st">'s/.*"file_path" *: *"\([^"]*\)".*/\1/p'</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-1</span><span class="va">)</span></span>
+<span id="cb11-4"><a href=""></a><span class="cf">case</span> <span class="st">"</span><span class="va">$f</span><span class="st">"</span> <span class="kw">in</span></span>
+<span id="cb11-5"><a href=""></a>  <span class="pp">*</span><span class="ss">.R</span><span class="kw">|</span><span class="pp">*</span><span class="ss">.r</span><span class="kw">)</span></span>
+<span id="cb11-6"><a href=""></a>    <span class="cf">if</span> <span class="ot">! </span><span class="va">err</span><span class="op">=</span><span class="va">$(</span><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"invisible(parse(file = '</span><span class="va">$f</span><span class="st">'))"</span> <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span><span class="va">)</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb11-7"><a href=""></a>      <span class="bu">echo</span> <span class="st">"R syntax error in </span><span class="va">$f</span><span class="st">: </span><span class="va">$err</span><span class="st">"</span> <span class="op">&gt;&amp;</span><span class="dv">2</span></span>
+<span id="cb11-8"><a href=""></a>      <span class="bu">exit</span> 2</span>
+<span id="cb11-9"><a href=""></a>    <span class="cf">fi</span> <span class="cf">;;</span></span>
+<span id="cb11-10"><a href=""></a><span class="cf">esac</span></span>
+<span id="cb11-11"><a href=""></a><span class="bu">exit</span> 0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Claude sees the error and fixes it in the next step, without you asking.</p>
+</section>
+<section class="slide level2">
+<h2>A Stop hook: give Claude a check it cannot skip · at home</h2>
+<p>Claude stops when the work <strong>looks</strong> done. A <code>Stop</code> hook runs when Claude tries to end its turn; exit code 2 sends it back to work, with your script’s stderr as the reason.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb12-1"><a href=""></a><span class="fu">{</span></span>
+<span id="cb12-2"><a href=""></a>  <span class="dt">"hooks"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb12-3"><a href=""></a>    <span class="dt">"Stop"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb12-4"><a href=""></a>      <span class="fu">{</span> <span class="dt">"hooks"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb12-5"><a href=""></a>          <span class="fu">{</span> <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"command"</span><span class="fu">,</span></span>
+<span id="cb12-6"><a href=""></a>            <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"Rscript </span><span class="ch">\"</span><span class="st">$CLAUDE_PROJECT_DIR</span><span class="ch">\"</span><span class="st">/R/checks.R 1&gt;&amp;2 || exit 2"</span> <span class="fu">}</span></span>
+<span id="cb12-7"><a href=""></a>      <span class="ot">]</span> <span class="fu">}</span></span>
+<span id="cb12-8"><a href=""></a>    <span class="ot">]</span></span>
+<span id="cb12-9"><a href=""></a>  <span class="fu">}</span></span>
+<span id="cb12-10"><a href=""></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>R/checks.R</code> contains <code>stopifnot()</code> assertions: <code>output/table3.csv</code> exists and matches the targets in CLAUDE.md within 0.01; every <code>[@key]</code> in <code>review/review.qmd</code> has an entry in <code>review/refs.bib</code>. Claude cannot finish while one fails.</p>
+<p>Lighter versions of the same idea: say “run R/checks.R and keep going until it passes” in the prompt, or set <code>/goal R/checks.R passes</code> (a separate model checks the condition after each turn).</p>
+<p>Keep hooks fast and narrow (a matcher, a file-type check). A slow hook on every tool call slows every step of every session.</p>
+</section>
+<section class="slide level2 scrollable">
+<h2>Lab 2.4 · A check Claude cannot skip (optional, 10 min) · at home</h2>
+<ol type="1">
+<li>Ask Claude to write <code>R/checks.R</code>: <code>stopifnot()</code> assertions that <code>output/table3.csv</code> matches the Table 3 targets in CLAUDE.md within 0.01, and that every citation key in <code>review/review.qmd</code> is in <code>review/refs.bib</code>.</li>
+<li>Register it as a <code>Stop</code> hook (previous slide). Restart the session; <code>/hooks</code> should list it.</li>
+<li>Ask for a change that breaks an assertion (e.g.&nbsp;“add a sentence to the review citing Neumark and Wascher (2008)” without adding it to refs.bib). Watch what happens when Claude tries to finish.</li>
+<li>Remove or keep the hook. Would you want it on every turn in your own project? What would it cost?</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>MCP: connecting other programs · at home</h2>
+<p>The <strong>Model Context Protocol</strong> lets Claude use tools of other programs: GitHub, a database, a reference manager, a Stata session, a browser.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href=""></a><span class="co"># a remote server over HTTP</span></span>
+<span id="cb13-2"><a href=""></a><span class="ex">claude</span> mcp add <span class="at">--transport</span> http github https://api.githubcopilot.com/mcp/</span>
+<span id="cb13-3"><a href=""></a></span>
+<span id="cb13-4"><a href=""></a><span class="co"># a local program</span></span>
+<span id="cb13-5"><a href=""></a><span class="ex">claude</span> mcp add <span class="at">--transport</span> stdio mydb <span class="at">--</span> python my_db_server.py</span>
+<span id="cb13-6"><a href=""></a></span>
+<span id="cb13-7"><a href=""></a><span class="ex">claude</span> mcp list          <span class="co"># what is configured</span></span>
+<span id="cb13-8"><a href=""></a><span class="ex">/mcp</span>                     <span class="co"># status inside a session</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Scopes: <code>local</code> (you, this project; default), <code>project</code> (<code>.mcp.json</code>, committed), <code>user</code> (all your projects).</p>
+<p>An MCP server is a program you run, with your permissions. Install only servers you trust. Text returned by a server (web pages, PDFs, emails) can contain instructions; treat it as data.</p>
+</section>
+<section class="slide level2">
+<h2>Plugins · at home</h2>
+<p>A <strong>plugin</strong> bundles skills, subagents, hooks and MCP servers, so they can be installed in one step.</p>
+<pre><code>/plugin                                          browse and install
+/plugin install commit-commands@claude-plugins-official</code></pre>
+<ul>
+<li>Marketplaces are Git repositories that list plugins; Anthropic runs an official one</li>
+<li>Install for yourself (user), the project (shared), or locally</li>
+<li>A plugin runs code on your machine: same caution as MCP</li>
+</ul>
+<p>You can package your own skills and agents as a plugin to share them with your research group.</p>
+</section>
+<section class="slide level2">
+<h2>Output styles and the status line · at home</h2>
+<p><strong>Output styles</strong> change how Claude writes its replies (<code>/output-style</code>):</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 46%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Style</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Default</td>
+<td>standard</td>
+</tr>
+<tr class="even">
+<td>Concise</td>
+<td>result first, no preamble</td>
+</tr>
+<tr class="odd">
+<td>Explanatory</td>
+<td>adds short “Insight” notes on its choices; good while learning</td>
+</tr>
+<tr class="even">
+<td>Learning</td>
+<td>leaves parts for you to write (<code>TODO(human)</code>); good for learning R or Stata</td>
+</tr>
+<tr class="odd">
+<td>Proactive</td>
+<td>starts implementing at once; works against plan-first</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Status line</strong>: a line below the prompt showing, for example, model, mode, context use and git branch. <code>/statusline</code> writes one from a description: “show model, permission mode and context percentage”.</p>
 </section>
 <section class="slide level2">
 <h2>Further reading</h2>

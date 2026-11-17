@@ -213,31 +213,37 @@ Ines Wilms
 </section>
 <section class="slide level2">
 <h2>Where we are</h2>
-<table class="caption-top">
+<table class="caption-top" style="width:100%;">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 30%">
+<col style="width: 35%">
+<col style="width: 35%">
 </colgroup>
 <thead>
 <tr class="header">
+<th>Time</th>
 <th>Block</th>
 <th>Topic</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td>13:00–13:55</td>
 <td>1</td>
 <td>Getting started ✓</td>
 </tr>
 <tr class="even">
+<td>13:55–14:50</td>
 <td>2</td>
 <td>Customization ✓</td>
 </tr>
 <tr class="odd">
+<td><strong>15:05–16:00</strong></td>
 <td><strong>3</strong></td>
 <td><strong>Agentic coding: delegation, subagents, review loops, verification, automation</strong></td>
 </tr>
 <tr class="even">
+<td>16:00–16:55</td>
 <td>4</td>
 <td>Optimal usage</td>
 </tr>
@@ -433,17 +439,6 @@ Ines Wilms
 </table>
 <p>Ask for <strong>evidence</strong>: the command and its output. “All checks pass” alone tells you little.</p>
 </section>
-<section class="slide level2">
-<h2>Running an approved plan without interruptions</h2>
-<p>When you approve a plan, you choose the mode for execution:</p>
-<ul>
-<li><strong>Manual</strong>: you approve each edit; slow, but you see everything</li>
-<li><strong>Edit automatically</strong>: edits go through; commands still ask</li>
-<li><strong>Auto</strong>: a classifier lets routine actions through and stops risky ones</li>
-</ul>
-<p>For a delegated task: approve into auto mode, with your allow/deny rules and a check in place. Then read the diff and the evidence at the end.</p>
-<p>Approving a plan does not limit Claude to the plan. Your permission rules and hooks do.</p>
-</section>
 <section>
 <section class="title-slide slide level1 center" data-background-color="#001c3d">
 <h1>Subagents in use</h1>
@@ -573,57 +568,22 @@ Ines Wilms
 </table>
 <p>A reviewer that has seen the draft and the reasoning behind it tends to find the draft acceptable.</p>
 <p><strong>Fresh context is not a fresh environment.</strong> A fresh reviewer can still read the files on disk: last round’s review, the answer key, a log with the “correct” numbers. If the review will be compared against something, keep that out of its reach (copy the artifact to a neutral folder).</p>
-</section>
-<section class="slide level2">
-<h2>Patterns with several agents</h2>
-<p><strong>Parallel fan-out:</strong> one agent per independent subtask; about three is a sensible number.</p>
-<blockquote>
-<p>Read these three papers in parallel. For each: identification assumption, estimator, replication package (yes/no). One table.</p>
-</blockquote>
-<p><strong>Specialist reviewers:</strong> each agent checks one dimension with full attention (code, econometrics, writing), then one report.</p>
-<p><strong>Independent advocates:</strong> each agent makes the strongest case for one option (three framings of the contribution) without seeing the others; a separate pass lists where they disagree. You decide.</p>
-<p><strong>Screening with a rubric:</strong> for “which of these 20 papers are relevant”, write the criteria first, make EXCLUDE the default, require a quoted sentence as evidence, and re-read three decisions yourself.</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center" data-background-color="#001c3d">
-<h1>Lab 3A · From the original files to a replication package</h1>
+<h1>Replication package</h1>
 
 </section>
 <section class="slide level2">
-<h2>The original package</h2>
-<p>What you downloaded in Block 1 is a typical 1990s package:</p>
-<pre><code>public.dat      410 stores, fixed-width text, "." for missing
-codebook        column positions and value labels
-check.sas       the authors' SAS program for some tabulations
-read.me         four lines of documentation
-survey1.nj      the questionnaires
-survey2.nj</code></pre>
-<p>Your task: a package a journal data editor could run today, in R. The AEA Data Editor README template requires, among other things: data availability and provenance, computational requirements (software and versions), a description of the programs and the order to run them, and a list of tables with the program that produces each.</p>
-</section>
-<section class="slide level2 lab scrollable">
-<h2>Lab 3A · Steps (35 min)</h2>
-<ol type="1">
-<li><strong>Spec (5 min)</strong>: ask Claude to interview you and write a spec with MUST/SHOULD/MAY and CLEAR/ASSUMED/BLOCKED. Resolve the BLOCKED items. Targets: Table 3 rows 1, 2, 4, 5 and Table 4 columns (i)–(iii).</li>
-<li><strong>Plan (5 min)</strong>: plan mode. The plan should include <code>00_master.R</code>, numbered scripts, relative paths, <code>output/</code>, recorded R version, and a README following the AEA template.</li>
-<li><strong>Execute (15 min)</strong>: approve into auto or edit-automatically mode. Acceptance bar, stated in your prompt:
+<h2>Lab 3A in 2 minutes (the full lab is at home)</h2>
+<p>The original Card and Krueger files (fixed-width data, codebook, SAS program) turned into an R replication package a data editor could run, in one delegated task:</p>
 <ul>
-<li><code>00_master.R</code> runs from a clean R session without error</li>
-<li>a table with published, replicated and difference for every target number</li>
-<li>every definition chosen (FTE, closed stores, sample of each table) listed with the page of the paper it comes from</li>
-<li><strong>if a number misses the tolerance: stop, report, do not adjust anything to make it fit</strong></li>
-</ul></li>
-<li><strong>Check (10 min)</strong>: restart R (Command Palette → “R: Restart Session”), run <code>00_master.R</code> yourself, and read the table of differences.</li>
-</ol>
-</section>
-<section class="slide level2">
-<h2>Lab 3A · Debrief</h2>
-<ul>
-<li>Did every number match? Which did not at first, and why?</li>
-<li>How did Claude find the right definition: from the paper, from <code>check.sas</code>, or by trying until it matched?</li>
-<li>Did Claude stop when a number missed the tolerance, or did it keep changing things?</li>
-<li>Could a colleague run your package without you?</li>
+<li>README following the AEA Data Editor template; <code>00_master.R</code> running numbered scripts from a clean session</li>
+<li>every published number of Table 3 and Table 4 (i)–(iii) compared with the replication: 37 numbers, largest difference 0.007</li>
+<li>every definition (FTE, closed stores, sample of each table) with the page or the line of <code>check.sas</code> it comes from</li>
+<li>a script that <strong>fails</strong> if a number misses the tolerance</li>
 </ul>
-<p>Matching a published number by trying definitions until it fits is not replication. The definition has to come from the paper or the code, and the README has to say where.</p>
+<p>The prompt contained the goal, the targets, the acceptance bar, and “stop and report if a number does not match”. The steps are in the section “At home”.</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center" data-background-color="#001c3d">
@@ -666,20 +626,6 @@ survey2.nj</code></pre>
 </tbody>
 </table>
 <p>Built in: <code>/code-review</code> reviews the current changes in a fresh subagent.</p>
-</section>
-<section class="slide level2">
-<h2>The critic–fixer loop</h2>
-<pre><code>            ┌──────────────┐  "12 issues, 3 critical"
-            │   critic     │──────────────┐
-            │ (read-only)  │              ▼
-            └──────▲───────┘        ┌──────────┐
-                   │                │  fixer   │ "fixed 12/12"
-                   │  re-audit      │ (edits)  │
-                   └────────────────┴──────────┘
-   stop when two rounds in a row find nothing new (and after at most 5 rounds)</code></pre>
-<p>The critic has no reason to play issues down, because it does not have to fix them. The fixer cannot declare its own work done.</p>
-<p>Findings that change an estimand, an assumption, the sample or the inference go to <strong>you</strong>, not to the fixer.</p>
-<p>A reviewer asked to find problems always finds something. Tell it what to skip (“skip style”), or you will accept changes that make the code worse.</p>
 </section>
 <section class="slide level2">
 <h2>Who checks the checker?</h2>
@@ -737,29 +683,6 @@ survey2.nj</code></pre>
 </tbody>
 </table>
 <p>Classes of error that a script can decide belong in a script, not in a prompt. A prompt that lists twenty checks gets some of them skipped; a script does not.</p>
-</section>
-<section class="slide level2">
-<h2>Known truth: simulation as a check</h2>
-<p>For estimation code, the strongest check is a case where you know the answer.</p>
-<ul>
-<li>A published table is one known answer (Lab 3A)</li>
-<li>A simulation is another: generate data with a known parameter, run the estimator, and check bias and coverage over many draws</li>
-</ul>
-<blockquote>
-<p>Simulate 1,000 datasets with two groups of 79 and 331 stores, a true difference of 0, and a standard deviation of employment changes three times larger in the small group. For each, compute the 95% interval for the difference with a pooled-variance and with a separate-variance standard error. Report the coverage of each.</p>
-</blockquote>
-<p>The pooled standard error covers the true value far less often than 95% when the small group has the larger variance. This is why the paper’s 1.34 is right and the pooled 1.15 is not. An agent can run such a check and act on it; writing the prompt also tests your own understanding of the estimator.</p>
-</section>
-<section class="slide level2 scrollable">
-<h2>Replicate first, then extend</h2>
-<p>When you build on a published paper:</p>
-<ol type="1">
-<li>Record the target numbers (Table 2, column 3: 0.123, s.e. 0.045)</li>
-<li>Reproduce them with the original specification (same sample, same controls, same clustering)</li>
-<li>Compare each number with a tolerance stated in advance; on a mismatch, <strong>stop</strong> and find out why</li>
-<li>Only then add new estimators and specifications</li>
-</ol>
-<p>An agent that is asked to “extend the paper” before replicating it will build on whatever it produced first, correct or not.</p>
 </section></section>
 <section>
 <section class="title-slide slide level1 center" data-background-color="#001c3d">
@@ -767,7 +690,7 @@ survey2.nj</code></pre>
 
 </section>
 <section class="slide level2 lab scrollable">
-<h2>Lab 3B · Steps (25 min)</h2>
+<h2>Lab 3B · Steps (20 min)</h2>
 <p><code>verify-lab/</code> has two versions of a draft section of a literature review on minimum wages, each with its own <code>refs.bib</code> and the replicated <code>output/table3.csv</code>: <code>A/</code> and <code>B/</code>. One has seven planted errors; the other is correct. You do not know which. Do not compare the two folders.</p>
 <ol type="1">
 <li><p>Open each folder in its own VS Code window (<strong>File → Open Folder…</strong>). Ask Claude there: &gt; Copy templates/citation-verifier.md to .claude/agents/. Change nothing else.</p>
@@ -781,7 +704,7 @@ survey2.nj</code></pre>
 </ol>
 </section>
 <section class="slide level2">
-<h2>Lab 3B · Debrief</h2>
+<h2>Lab 3B · Debrief (5 min)</h2>
 <ul>
 <li>Recall on the planted version: who found all seven? Which error was missed most often?</li>
 <li>False positives on the correct version: what did the verifier report that is not wrong?</li>
@@ -790,22 +713,129 @@ survey2.nj</code></pre>
 </ul>
 <p>Results vary between runs. A single clean report tells you little; a verifier tested on planted errors and on a clean control tells you more.</p>
 </section>
+<section class="slide level2">
+<h2>What we covered</h2>
+<ul>
+<li>Delegation needs a goal, an acceptance bar, a scope, checks, an output format, and a rule for when to stop and ask</li>
+<li>A spec with MUST/SHOULD/MAY and CLEAR/ASSUMED/BLOCKED makes Claude’s assumptions visible before the plan</li>
+<li>Subagents: independent review, parallel work, restricted tools; each costs its own tokens</li>
+<li>Fresh context for review, never a fork; keep answer keys out of the reviewer’s reach</li>
+<li>Critic–fixer loops; a ladder of checks; test the checker on planted errors and a clean control</li>
+<li>Known truth (a published table, a simulation) and replication before extension</li>
+<li>Worktrees, background tasks and headless mode for parallel and repeated work</li>
+</ul>
+<p><strong>Next block:</strong> using all of this well: context, cost, research integrity, and a complete research configuration.</p>
+</section></section>
+<section>
+<section class="title-slide slide level1 center" data-background-color="#001c3d">
+<h1>At home</h1>
+
+</section>
+<section class="slide level2">
+<h2>The original package · at home</h2>
+<p>What you downloaded in Block 1 is a typical 1990s package:</p>
+<pre><code>public.dat      410 stores, fixed-width text, "." for missing
+codebook        column positions and value labels
+check.sas       the authors' SAS program for some tabulations
+read.me         four lines of documentation
+survey1.nj      the questionnaires
+survey2.nj</code></pre>
+<p>Your task: a package a journal data editor could run today, in R. The AEA Data Editor README template requires, among other things: data availability and provenance, computational requirements (software and versions), a description of the programs and the order to run them, and a list of tables with the program that produces each.</p>
+</section>
 <section class="slide level2 scrollable">
-<h2>Lab 3C · Screening with a rubric (optional, at home)</h2>
+<h2>Lab 3A · Steps (35 min) · at home</h2>
+<ol type="1">
+<li><strong>Spec (5 min)</strong>: ask Claude to interview you and write a spec with MUST/SHOULD/MAY and CLEAR/ASSUMED/BLOCKED. Resolve the BLOCKED items. Targets: Table 3 rows 1, 2, 4, 5 and Table 4 columns (i)–(iii).</li>
+<li><strong>Plan (5 min)</strong>: plan mode. The plan should include <code>00_master.R</code>, numbered scripts, relative paths, <code>output/</code>, recorded R version, and a README following the AEA template.</li>
+<li><strong>Execute (15 min)</strong>: approve into auto or edit-automatically mode. Acceptance bar, stated in your prompt:
+<ul>
+<li><code>00_master.R</code> runs from a clean R session without error</li>
+<li>a table with published, replicated and difference for every target number</li>
+<li>every definition chosen (FTE, closed stores, sample of each table) listed with the page of the paper it comes from</li>
+<li><strong>if a number misses the tolerance: stop, report, do not adjust anything to make it fit</strong></li>
+</ul></li>
+<li><strong>Check (10 min)</strong>: restart R (Command Palette → “R: Restart Session”), run <code>00_master.R</code> yourself, and read the table of differences.</li>
+</ol>
+</section>
+<section class="slide level2">
+<h2>Lab 3A · Debrief · at home</h2>
+<ul>
+<li>Did every number match? Which did not at first, and why?</li>
+<li>How did Claude find the right definition: from the paper, from <code>check.sas</code>, or by trying until it matched?</li>
+<li>Did Claude stop when a number missed the tolerance, or did it keep changing things?</li>
+<li>Could a colleague run your package without you?</li>
+</ul>
+<p>Matching a published number by trying definitions until it fits is not replication. The definition has to come from the paper or the code, and the README has to say where.</p>
+</section>
+<section class="slide level2">
+<h2>Running an approved plan without interruptions · at home</h2>
+<p>When you approve a plan, you choose the mode for execution:</p>
+<ul>
+<li><strong>Manual</strong>: you approve each edit; slow, but you see everything</li>
+<li><strong>Edit automatically</strong>: edits go through; commands still ask</li>
+<li><strong>Auto</strong>: a classifier lets routine actions through and stops risky ones</li>
+</ul>
+<p>For a delegated task: approve into auto mode, with your allow/deny rules and a check in place. Then read the diff and the evidence at the end.</p>
+<p>Approving a plan does not limit Claude to the plan. Your permission rules and hooks do.</p>
+</section>
+<section class="slide level2">
+<h2>Patterns with several agents · at home</h2>
+<p><strong>Parallel fan-out:</strong> one agent per independent subtask; about three is a sensible number.</p>
+<blockquote>
+<p>Read these three papers in parallel. For each: identification assumption, estimator, replication package (yes/no). One table.</p>
+</blockquote>
+<p><strong>Specialist reviewers:</strong> each agent checks one dimension with full attention (code, econometrics, writing), then one report.</p>
+<p><strong>Independent advocates:</strong> each agent makes the strongest case for one option (three framings of the contribution) without seeing the others; a separate pass lists where they disagree. You decide.</p>
+<p><strong>Screening with a rubric:</strong> for “which of these 20 papers are relevant”, write the criteria first, make EXCLUDE the default, require a quoted sentence as evidence, and re-read three decisions yourself.</p>
+</section>
+<section class="slide level2">
+<h2>The critic–fixer loop · at home</h2>
+<pre><code>            ┌──────────────┐  "12 issues, 3 critical"
+            │   critic     │──────────────┐
+            │ (read-only)  │              ▼
+            └──────▲───────┘        ┌──────────┐
+                   │                │  fixer   │ "fixed 12/12"
+                   │  re-audit      │ (edits)  │
+                   └────────────────┴──────────┘
+   stop when two rounds in a row find nothing new (and after at most 5 rounds)</code></pre>
+<p>The critic has no reason to play issues down, because it does not have to fix them. The fixer cannot declare its own work done.</p>
+<p>Findings that change an estimand, an assumption, the sample or the inference go to <strong>you</strong>, not to the fixer.</p>
+<p>A reviewer asked to find problems always finds something. Tell it what to skip (“skip style”), or you will accept changes that make the code worse.</p>
+</section>
+<section class="slide level2">
+<h2>Known truth: simulation as a check · at home</h2>
+<p>For estimation code, the strongest check is a case where you know the answer.</p>
+<ul>
+<li>A published table is one known answer (Lab 3A)</li>
+<li>A simulation is another: generate data with a known parameter, run the estimator, and check bias and coverage over many draws</li>
+</ul>
+<blockquote>
+<p>Simulate 1,000 datasets with two groups of 79 and 331 stores, a true difference of 0, and a standard deviation of employment changes three times larger in the small group. For each, compute the 95% interval for the difference with a pooled-variance and with a separate-variance standard error. Report the coverage of each.</p>
+</blockquote>
+<p>The pooled standard error covers the true value far less often than 95% when the small group has the larger variance. This is why the paper’s 1.34 is right and the pooled 1.15 is not. An agent can run such a check and act on it; writing the prompt also tests your own understanding of the estimator.</p>
+</section>
+<section class="slide level2 scrollable">
+<h2>Replicate first, then extend · at home</h2>
+<p>When you build on a published paper:</p>
+<ol type="1">
+<li>Record the target numbers (Table 2, column 3: 0.123, s.e. 0.045)</li>
+<li>Reproduce them with the original specification (same sample, same controls, same clustering)</li>
+<li>Compare each number with a tolerance stated in advance; on a mismatch, <strong>stop</strong> and find out why</li>
+<li>Only then add new estimators and specifications</li>
+</ol>
+<p>An agent that is asked to “extend the paper” before replicating it will build on whatever it produced first, correct or not.</p>
+</section>
+<section class="slide level2 scrollable">
+<h2>Lab 3C · Screening with a rubric (optional) · at home</h2>
 <ol type="1">
 <li>Run <code>/lit-search minimum wage employment effects</code> (Block 2) to get about 15 candidates.</li>
 <li>Write a rubric: what makes a paper relevant to <em>your</em> review? Make <strong>exclude</strong> the default; a paper is included only if a written criterion admits it, with a quoted sentence from its abstract as evidence.</li>
 <li>Ask Claude to screen the candidates with three parallel subagents, five papers each, and to combine the results into one table.</li>
 <li>Re-read three decisions yourself: one included, one excluded, one borderline. Do you agree?</li>
 </ol>
-</section></section>
-<section>
-<section class="title-slide slide level1 center" data-background-color="#001c3d">
-<h1>Automation</h1>
-
 </section>
 <section class="slide level2">
-<h2>Parallel sessions and background work</h2>
+<h2>Parallel sessions and background work · at home</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 30%">
@@ -851,7 +881,7 @@ survey2.nj</code></pre>
 <p>Example: one worktree estimates the main specification, another builds the robustness table, you merge both when they pass their checks.</p>
 </section>
 <section class="slide level2">
-<h2>Claude from a script: headless mode</h2>
+<h2>Claude from a script: headless mode · at home</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href=""></a><span class="ex">claude</span> <span class="at">-p</span> <span class="st">"Run 00_master.R and compare every number in draft.md with output/. Report mismatches as JSON."</span> <span class="dt">\</span></span>
 <span id="cb3-2"><a href=""></a>  <span class="at">--allowedTools</span> <span class="st">"Read,Grep,Glob,Bash(Rscript *)"</span> <span class="dt">\</span></span>
 <span id="cb3-3"><a href=""></a>  <span class="at">--output-format</span> json <span class="dt">\</span></span>
@@ -893,7 +923,7 @@ survey2.nj</code></pre>
 <p>Use it for repeated checks: every chapter through the same referee prompt, every table through the same number check. Headless use may be billed separately from interactive use; check your plan.</p>
 </section>
 <section class="slide level2">
-<h2>GitHub and the cloud</h2>
+<h2>GitHub and the cloud · at home</h2>
 <ul>
 <li><strong>GitHub Actions:</strong> <code>/install-github-app</code> connects a repository; then <code>@claude</code> in an issue or pull-request comment starts a run (<code>anthropics/claude-code-action</code>)</li>
 <li><strong>Cloud sessions</strong> (claude.ai/code): Claude works on a copy of your repository in the cloud; <code>/teleport</code> brings a session to your terminal</li>
@@ -902,7 +932,7 @@ survey2.nj</code></pre>
 <p>For research projects: useful for a check that runs on every push (master script, number comparison). Not needed for the course.</p>
 </section>
 <section class="slide level2">
-<h2>Risks of more autonomy</h2>
+<h2>Risks of more autonomy · at home</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 22%">
@@ -949,19 +979,6 @@ survey2.nj</code></pre>
 </tr>
 </tbody>
 </table>
-</section>
-<section class="slide level2">
-<h2>What we covered</h2>
-<ul>
-<li>Delegation needs a goal, an acceptance bar, a scope, checks, an output format, and a rule for when to stop and ask</li>
-<li>A spec with MUST/SHOULD/MAY and CLEAR/ASSUMED/BLOCKED makes Claude’s assumptions visible before the plan</li>
-<li>Subagents: independent review, parallel work, restricted tools; each costs its own tokens</li>
-<li>Fresh context for review, never a fork; keep answer keys out of the reviewer’s reach</li>
-<li>Critic–fixer loops; a ladder of checks; test the checker on planted errors and a clean control</li>
-<li>Known truth (a published table, a simulation) and replication before extension</li>
-<li>Worktrees, background tasks and headless mode for parallel and repeated work</li>
-</ul>
-<p><strong>Next block:</strong> using all of this well: context, cost, research integrity, and a complete research configuration.</p>
 </section>
 <section class="slide level2">
 <h2>Further reading</h2>
