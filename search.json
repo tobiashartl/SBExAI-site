@@ -86,42 +86,42 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Claude Code for Empirical Research",
+    "title": "Responsible use of AI",
     "section": "",
-    "text": "Tuesday 15 December 2026, 13:00–17:00 · Room: TODO\nInstructors: Tobias Hartl and Ines Wilms\nA hands-on afternoon course on using AI coding agents, in particular Claude Code, in empirical research. You work in Claude Code inside VS Code from the first hour, on one project that runs through the whole afternoon and continues as a take-home."
+    "text": "Tuesday 15 December 2026, 13:00–17:00 · Room: TODO\nInstructors: Tobias Hartl and Ines Wilms\nA hands-on afternoon course on using AI coding agents, in particular Claude Code, in empirical research. You work in Claude Code inside VS Code from the first hour, on one project that runs through the whole afternoon and continues as a take-home.\nEverything in the course can also be done with other agentic AI tools, such as OpenAI Codex, Google’s Gemini CLI or GitHub Copilot’s agent mode. We use Claude Code as the demonstration tool; what you learn is the workflow, not one product."
   },
   {
     "objectID": "index.html#what-you-will-be-able-to-do",
     "href": "index.html#what-you-will-be-able-to-do",
-    "title": "Claude Code for Empirical Research",
+    "title": "Responsible use of AI",
     "section": "What you will be able to do",
     "text": "What you will be able to do\n\nSet up Claude Code in VS Code and choose a model, an effort level and a permission mode for a task, with plan mode as your default\nGive a project a memory, rules, permissions, skills and hooks\nDelegate work to agents with a specification and checks, and test the checks\nWrite a literature review and reproduce a published table with Claude, and verify every citation and number\nUse AI in research responsibly: data protection, disclosure, specification search"
   },
   {
     "objectID": "index.html#the-project",
     "href": "index.html#the-project",
-    "title": "Claude Code for Empirical Research",
+    "title": "Responsible use of AI",
     "section": "The project",
     "text": "The project\nCard and Krueger (1994) studied the employment effect of New Jersey’s 1992 minimum-wage increase by comparing fast-food restaurants in New Jersey and Pennsylvania. In the afternoon you reproduce the paper’s main table, write a short review of the debate that followed, and present both in a few slides. Details and the take-home: Project."
   },
   {
     "objectID": "index.html#schedule",
     "href": "index.html#schedule",
-    "title": "Claude Code for Empirical Research",
+    "title": "Responsible use of AI",
     "section": "Schedule",
     "text": "Schedule\n\n\n\n\n\n\n\nTime\nBlock\n\n\n\n\n12:45–13:00\nDoors open: we check that Claude Code runs on your laptop\n\n\n13:00–13:55\n1 · Getting started: models, effort, modes, plan mode; read the paper and reproduce Table 3\n\n\n13:55–14:50\n2 · Customization: CLAUDE.md, permissions, skills\n\n\n14:50–15:05\nBreak\n\n\n15:05–16:00\n3 · Agentic coding: delegation, subagents, testing your checks\n\n\n16:00–16:55\n4 · Optimal usage: integrity, writing with Claude, a complete research configuration\n\n\n16:55–17:00\nQuestions, feedback"
   },
   {
     "objectID": "index.html#before-the-course",
     "href": "index.html#before-the-course",
-    "title": "Claude Code for Empirical Research",
+    "title": "Responsible use of AI",
     "section": "Before the course",
     "text": "Before the course\nThe setup is required before the course (about 30 minutes, no command line needed). Send the final check to the instructors; there is no time to install during the session. You need a paid Claude plan (Pro or higher) or a course account."
   },
   {
     "objectID": "index.html#data-and-ai-use",
     "href": "index.html#data-and-ai-use",
-    "title": "Claude Code for Empirical Research",
+    "title": "Responsible use of AI",
     "section": "Data and AI use",
     "text": "Data and AI use\nAnything Claude reads is sent to an external server. Do not bring confidential data (CBS microdata, administrative registers, personal data, data under an NDA) to the course; we work with public data. Follow your doctoral regulations and the journals’ policies on disclosing AI use."
   },
@@ -130,7 +130,7 @@
     "href": "setup.html",
     "title": "Setup before the course",
     "section": "",
-    "text": "Required before the course (Tuesday 15 December 2026, 13:00). It takes about 30 minutes and needs no command line; there is no time to install during the session. If something fails, send the instructors a screenshot of the error before the course.\n\n\nGo to claude.com/pricing, choose Pro (or higher) and create an account. The Free plan does not include Claude Code. If the course provides accounts, use the course login instead.\n\n\n\nClaude plans\n\n\nOptional: the Claude desktop app (claude.com/download) has a Code tab that runs Claude Code on a folder. It is a fallback if VS Code does not work on your laptop.\n\n\n\nDownload from code.visualstudio.com/download and install. macOS: drag Visual Studio Code into Applications. Windows: accept the defaults.\n\n\n\nVS Code download page\n\n\n\n\n\nOpen the Marketplace page and click Install (allow the browser to open VS Code). Or, inside VS Code: click the Extensions icon in the left bar, search Claude Code, and click Install on Claude Code for VS Code by Anthropic (blue check mark).\n\n\n\nClaude Code in the Marketplace\n\n\nInstall the R extension by REditorSupport the same way: open its Marketplace page and click Install, or search R in the Extensions view.\n\n\n\nThe R extension in the Marketplace\n\n\n\n\n\nInstall R 4.3 or later from cran.r-project.org. No extra packages are needed for the course project.\nInstall Quarto from quarto.org/docs/get-started (click the download for your system and run the installer), and the Quarto extension in VS Code (step 3). We use it in Block 4 to render the review and the slides.\n\n\n\nQuarto download page\n\n\n\n\n\n\nMake an empty folder, e.g. cc-test. In VS Code: File → Open Folder… (macOS: File → Open…), choose the folder, and click Yes, I trust the authors.\n\n\n\nThe trust dialog\n\n\nClick the orange Claude icon at the top right of the editor, then Sign in, and finish the login in the browser.\n\n\n\nThe Claude Code panel in VS Code\n\n\nSettings (Code → Settings → Settings on macOS, File → Preferences → Settings on Windows): search Claude Code initial permission mode and choose plan.\n\n\n\n\nType in the Claude panel:\n\nWhich versions of R and Quarto are installed? Do not install or change anything.\n\nApprove the command Claude wants to run. Send its answer to the instructors by TODO date.\n\n\n\nDo not bring confidential data to the course: no microdata under a data-use agreement (e.g. CBS remote-access data), no administrative registers, no personal data. Anything Claude reads is sent to an external server. We work with public data (Card and Krueger, 1994).\n\n\n\n\nNot needed for the course. If you already use git, keep using it: commit before larger Claude tasks and review changes in VS Code’s Source Control view.\n\n\n\nClaude Code also runs in a terminal. Not needed for the course.\n# macOS, Linux, WSL\ncurl -fsSL https://claude.ai/install.sh | bash\n# Windows PowerShell\nirm https://claude.ai/install.ps1 | iex\n\nclaude --version   # check\nclaude doctor      # check installation and settings\nclaude             # start in the current folder\n\nImage credits: claude.com, code.visualstudio.com and quarto.org (screenshots, November 2026); VS Code documentation © Microsoft, CC BY 3.0; Claude Code documentation, Anthropic."
+    "text": "Required before the course (Tuesday 15 December 2026, 13:00). It takes about 30 minutes and needs no command line; there is no time to install during the session. If something fails, send the instructors a screenshot of the error before the course.\n\n\nGo to claude.com/pricing, choose Pro (or higher) and create an account. The Free plan does not include Claude Code. If the course provides accounts, use the course login instead.\n\n\n\nClaude plans\n\n\nOptional: the Claude desktop app (claude.com/download) has a Code tab that runs Claude Code on a folder. It is a fallback if VS Code does not work on your laptop.\n\n\n\nInstall R first: the R extension for VS Code (step 5) needs it.\nGo to cran.r-project.org, click Download R for macOS or Download R for Windows, and run the installer (R 4.3 or later). Windows: keep the default options. No extra packages are needed for the course project.\n\n\n\nDownload R from CRAN\n\n\nInstall Quarto from quarto.org/docs/get-started: click the download for your system and run the installer. We use it in Block 4 to render the review and the slides.\n\n\n\nQuarto download page\n\n\n\n\n\nDownload from code.visualstudio.com/download and install. macOS: drag Visual Studio Code into Applications. Windows: accept the defaults.\n\n\n\nVS Code download page\n\n\n\n\n\nOpen the Marketplace page and click Install (allow the browser to open VS Code). Or, inside VS Code: click the Extensions icon in the left bar (four squares), search Claude Code, and click Install on Claude Code for VS Code by Anthropic (blue check mark).\n\n\n\nClaude Code in the Marketplace\n\n\n\n\n\nOnly after R is installed (step 2): open the R extension’s Marketplace page and click Install, or search R in the Extensions view and install R by REditorSupport. Then restart VS Code, so it finds R.\n\n\n\nThe R extension in the Marketplace\n\n\nInstall the Quarto extension the same way (search Quarto, publisher Quarto).\n\n\n\n\nMake an empty folder, e.g. cc-test. In VS Code: File → Open Folder… (macOS: File → Open…), choose the folder, and click Yes, I trust the authors.\n\n\n\nThe trust dialog\n\n\nClick the orange Claude icon at the top right of the editor, then Sign in, and finish the login in the browser.\n\n\n\nThe Claude Code panel in VS Code\n\n\nSettings (Code → Settings → Settings on macOS, File → Preferences → Settings on Windows): search Claude Code initial permission mode and choose plan.\n\n\n\n\nType in the Claude panel:\n\nWhich versions of R and Quarto are installed? Do not install or change anything.\n\nApprove the command Claude wants to run. Send its answer to the instructors by TODO date.\n\n\n\nDo not bring confidential data to the course: no microdata under a data-use agreement (e.g. CBS remote-access data), no administrative registers, no personal data. Anything Claude reads is sent to an external server. We work with public data (Card and Krueger, 1994).\n\n\n\n\nNot needed for the course. If you already use git, keep using it: commit before larger Claude tasks and review changes in VS Code’s Source Control view.\n\n\n\nClaude Code also runs in a terminal. Not needed for the course.\n# macOS, Linux, WSL\ncurl -fsSL https://claude.ai/install.sh | bash\n# Windows PowerShell\nirm https://claude.ai/install.ps1 | iex\n\nclaude --version   # check\nclaude doctor      # check installation and settings\nclaude             # start in the current folder\n\nImage credits: claude.com, code.visualstudio.com and quarto.org (screenshots, November 2026); VS Code documentation © Microsoft, CC BY 3.0; Claude Code documentation, Anthropic."
   },
   {
     "objectID": "setup.html#a-claude-account",
@@ -138,6 +138,13 @@
     "title": "Setup before the course",
     "section": "",
     "text": "Go to claude.com/pricing, choose Pro (or higher) and create an account. The Free plan does not include Claude Code. If the course provides accounts, use the course login instead.\n\n\n\nClaude plans\n\n\nOptional: the Claude desktop app (claude.com/download) has a Code tab that runs Claude Code on a folder. It is a fallback if VS Code does not work on your laptop."
+  },
+  {
+    "objectID": "setup.html#r-and-quarto",
+    "href": "setup.html#r-and-quarto",
+    "title": "Setup before the course",
+    "section": "",
+    "text": "Install R first: the R extension for VS Code (step 5) needs it.\nGo to cran.r-project.org, click Download R for macOS or Download R for Windows, and run the installer (R 4.3 or later). Windows: keep the default options. No extra packages are needed for the course project.\n\n\n\nDownload R from CRAN\n\n\nInstall Quarto from quarto.org/docs/get-started: click the download for your system and run the installer. We use it in Block 4 to render the review and the slides.\n\n\n\nQuarto download page"
   },
   {
     "objectID": "setup.html#vs-code",
@@ -151,14 +158,14 @@
     "href": "setup.html#the-claude-code-extension",
     "title": "Setup before the course",
     "section": "",
-    "text": "Open the Marketplace page and click Install (allow the browser to open VS Code). Or, inside VS Code: click the Extensions icon in the left bar, search Claude Code, and click Install on Claude Code for VS Code by Anthropic (blue check mark).\n\n\n\nClaude Code in the Marketplace\n\n\nInstall the R extension by REditorSupport the same way: open its Marketplace page and click Install, or search R in the Extensions view.\n\n\n\nThe R extension in the Marketplace"
+    "text": "Open the Marketplace page and click Install (allow the browser to open VS Code). Or, inside VS Code: click the Extensions icon in the left bar (four squares), search Claude Code, and click Install on Claude Code for VS Code by Anthropic (blue check mark).\n\n\n\nClaude Code in the Marketplace"
   },
   {
-    "objectID": "setup.html#r-and-quarto",
-    "href": "setup.html#r-and-quarto",
+    "objectID": "setup.html#the-r-and-quarto-extensions",
+    "href": "setup.html#the-r-and-quarto-extensions",
     "title": "Setup before the course",
     "section": "",
-    "text": "Install R 4.3 or later from cran.r-project.org. No extra packages are needed for the course project.\nInstall Quarto from quarto.org/docs/get-started (click the download for your system and run the installer), and the Quarto extension in VS Code (step 3). We use it in Block 4 to render the review and the slides.\n\n\n\nQuarto download page"
+    "text": "Only after R is installed (step 2): open the R extension’s Marketplace page and click Install, or search R in the Extensions view and install R by REditorSupport. Then restart VS Code, so it finds R.\n\n\n\nThe R extension in the Marketplace\n\n\nInstall the Quarto extension the same way (search Quarto, publisher Quarto)."
   },
   {
     "objectID": "setup.html#open-a-folder-sign-in-set-plan-mode",

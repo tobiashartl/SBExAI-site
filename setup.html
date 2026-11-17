@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>setup – Claude Code for Empirical Research</title>
+<title>setup – Responsible use of AI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -112,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Claude Code for Empirical Research</span>
+    <span class="navbar-title">Responsible use of AI</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -160,12 +160,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#setup-before-the-course" id="toc-setup-before-the-course" class="nav-link active" data-scroll-target="#setup-before-the-course">Setup before the course</a>
   <ul class="collapse">
   <li><a href="#a-claude-account" id="toc-a-claude-account" class="nav-link" data-scroll-target="#a-claude-account">1. A Claude account</a></li>
-  <li><a href="#vs-code" id="toc-vs-code" class="nav-link" data-scroll-target="#vs-code">2. VS Code</a></li>
-  <li><a href="#the-claude-code-extension" id="toc-the-claude-code-extension" class="nav-link" data-scroll-target="#the-claude-code-extension">3. The Claude Code extension</a></li>
-  <li><a href="#r-and-quarto" id="toc-r-and-quarto" class="nav-link" data-scroll-target="#r-and-quarto">4. R and Quarto</a></li>
-  <li><a href="#open-a-folder-sign-in-set-plan-mode" id="toc-open-a-folder-sign-in-set-plan-mode" class="nav-link" data-scroll-target="#open-a-folder-sign-in-set-plan-mode">5. Open a folder, sign in, set plan mode</a></li>
-  <li><a href="#final-check" id="toc-final-check" class="nav-link" data-scroll-target="#final-check">6. Final check</a></li>
-  <li><a href="#data-rule" id="toc-data-rule" class="nav-link" data-scroll-target="#data-rule">7. Data rule</a></li>
+  <li><a href="#r-and-quarto" id="toc-r-and-quarto" class="nav-link" data-scroll-target="#r-and-quarto">2. R and Quarto</a></li>
+  <li><a href="#vs-code" id="toc-vs-code" class="nav-link" data-scroll-target="#vs-code">3. VS Code</a></li>
+  <li><a href="#the-claude-code-extension" id="toc-the-claude-code-extension" class="nav-link" data-scroll-target="#the-claude-code-extension">4. The Claude Code extension</a></li>
+  <li><a href="#the-r-and-quarto-extensions" id="toc-the-r-and-quarto-extensions" class="nav-link" data-scroll-target="#the-r-and-quarto-extensions">5. The R and Quarto extensions</a></li>
+  <li><a href="#open-a-folder-sign-in-set-plan-mode" id="toc-open-a-folder-sign-in-set-plan-mode" class="nav-link" data-scroll-target="#open-a-folder-sign-in-set-plan-mode">6. Open a folder, sign in, set plan mode</a></li>
+  <li><a href="#final-check" id="toc-final-check" class="nav-link" data-scroll-target="#final-check">7. Final check</a></li>
+  <li><a href="#data-rule" id="toc-data-rule" class="nav-link" data-scroll-target="#data-rule">8. Data rule</a></li>
   <li><a href="#optional-git" id="toc-optional-git" class="nav-link" data-scroll-target="#optional-git">Optional: git</a></li>
   <li><a href="#optional-the-command-line" id="toc-optional-the-command-line" class="nav-link" data-scroll-target="#optional-the-command-line">Optional: the command line</a></li>
   </ul></li>
@@ -192,8 +193,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Optional: the Claude desktop app (<a href="https://claude.com/download">claude.com/download</a>) has a <strong>Code</strong> tab that runs Claude Code on a folder. It is a fallback if VS Code does not work on your laptop.</p>
 </section>
+<section id="r-and-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="r-and-quarto">2. R and Quarto</h2>
+<p>Install <strong>R first</strong>: the R extension for VS Code (step 5) needs it.</p>
+<p>Go to <a href="https://cran.r-project.org">cran.r-project.org</a>, click <strong>Download R for macOS</strong> or <strong>Download R for Windows</strong>, and run the installer (R 4.3 or later). Windows: keep the default options. No extra packages are needed for the course project.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slides/assets/setup/cran-download.png" class="img-fluid figure-img"></p>
+<figcaption>Download R from CRAN</figcaption>
+</figure>
+</div>
+<p>Install Quarto from <a href="https://quarto.org/docs/get-started/">quarto.org/docs/get-started</a>: click the download for your system and run the installer. We use it in Block 4 to render the review and the slides.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slides/assets/setup/quarto-download.png" class="img-fluid figure-img"></p>
+<figcaption>Quarto download page</figcaption>
+</figure>
+</div>
+</section>
 <section id="vs-code" class="level2">
-<h2 class="anchored" data-anchor-id="vs-code">2. VS Code</h2>
+<h2 class="anchored" data-anchor-id="vs-code">3. VS Code</h2>
 <p>Download from <a href="https://code.visualstudio.com/download">code.visualstudio.com/download</a> and install. macOS: drag <em>Visual Studio Code</em> into <em>Applications</em>. Windows: accept the defaults.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -203,35 +222,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="the-claude-code-extension" class="level2">
-<h2 class="anchored" data-anchor-id="the-claude-code-extension">3. The Claude Code extension</h2>
-<p>Open the <a href="https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code">Marketplace page</a> and click <strong>Install</strong> (allow the browser to open VS Code). Or, inside VS Code: click the <strong>Extensions</strong> icon in the left bar, search <strong>Claude Code</strong>, and click <strong>Install</strong> on <em>Claude Code for VS Code</em> by <strong>Anthropic</strong> (blue check mark).</p>
+<h2 class="anchored" data-anchor-id="the-claude-code-extension">4. The Claude Code extension</h2>
+<p>Open the <a href="https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code">Marketplace page</a> and click <strong>Install</strong> (allow the browser to open VS Code). Or, inside VS Code: click the <strong>Extensions</strong> icon in the left bar (four squares), search <strong>Claude Code</strong>, and click <strong>Install</strong> on <em>Claude Code for VS Code</em> by <strong>Anthropic</strong> (blue check mark).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="slides/assets/setup/marketplace-claude-code.png" class="img-fluid figure-img"></p>
 <figcaption>Claude Code in the Marketplace</figcaption>
 </figure>
 </div>
-<p>Install the <strong>R</strong> extension by <strong>REditorSupport</strong> the same way: open its <a href="https://marketplace.visualstudio.com/items?itemName=REditorSupport.r">Marketplace page</a> and click <strong>Install</strong>, or search <strong>R</strong> in the Extensions view.</p>
+</section>
+<section id="the-r-and-quarto-extensions" class="level2">
+<h2 class="anchored" data-anchor-id="the-r-and-quarto-extensions">5. The R and Quarto extensions</h2>
+<p>Only after R is installed (step 2): open the <a href="https://marketplace.visualstudio.com/items?itemName=REditorSupport.r">R extension’s Marketplace page</a> and click <strong>Install</strong>, or search <strong>R</strong> in the Extensions view and install <em>R</em> by <strong>REditorSupport</strong>. Then restart VS Code, so it finds R.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="slides/assets/setup/marketplace-r.png" class="img-fluid figure-img"></p>
 <figcaption>The R extension in the Marketplace</figcaption>
 </figure>
 </div>
-</section>
-<section id="r-and-quarto" class="level2">
-<h2 class="anchored" data-anchor-id="r-and-quarto">4. R and Quarto</h2>
-<p>Install R 4.3 or later from <a href="https://cran.r-project.org">cran.r-project.org</a>. No extra packages are needed for the course project.</p>
-<p>Install Quarto from <a href="https://quarto.org/docs/get-started/">quarto.org/docs/get-started</a> (click the download for your system and run the installer), and the <strong>Quarto</strong> extension in VS Code (step 3). We use it in Block 4 to render the review and the slides.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="slides/assets/setup/quarto-download.png" class="img-fluid figure-img"></p>
-<figcaption>Quarto download page</figcaption>
-</figure>
-</div>
+<p>Install the <strong>Quarto</strong> extension the same way (search <strong>Quarto</strong>, publisher Quarto).</p>
 </section>
 <section id="open-a-folder-sign-in-set-plan-mode" class="level2">
-<h2 class="anchored" data-anchor-id="open-a-folder-sign-in-set-plan-mode">5. Open a folder, sign in, set plan mode</h2>
+<h2 class="anchored" data-anchor-id="open-a-folder-sign-in-set-plan-mode">6. Open a folder, sign in, set plan mode</h2>
 <ol type="1">
 <li><p>Make an empty folder, e.g.&nbsp;<code>cc-test</code>. In VS Code: <strong>File → Open Folder…</strong> (macOS: <strong>File → Open…</strong>), choose the folder, and click <strong>Yes, I trust the authors</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -251,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 </section>
 <section id="final-check" class="level2">
-<h2 class="anchored" data-anchor-id="final-check">6. Final check</h2>
+<h2 class="anchored" data-anchor-id="final-check">7. Final check</h2>
 <p>Type in the Claude panel:</p>
 <blockquote class="blockquote">
 <p>Which versions of R and Quarto are installed? Do not install or change anything.</p>
@@ -259,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Approve the command Claude wants to run. Send its answer to the instructors by <strong>TODO date</strong>.</p>
 </section>
 <section id="data-rule" class="level2">
-<h2 class="anchored" data-anchor-id="data-rule">7. Data rule</h2>
+<h2 class="anchored" data-anchor-id="data-rule">8. Data rule</h2>
 <p>Do <strong>not</strong> bring confidential data to the course: no microdata under a data-use agreement (e.g.&nbsp;CBS remote-access data), no administrative registers, no personal data. Anything Claude reads is sent to an external server. We work with public data (Card and Krueger, 1994).</p>
 <hr>
 </section>

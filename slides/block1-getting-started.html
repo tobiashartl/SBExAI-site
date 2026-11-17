@@ -195,7 +195,7 @@
 
 <section data-background-color="#001c3d" class="quarto-title-block center">
   <h1 class="title">Block 1 · Getting started</h1>
-  <p class="subtitle">Claude Code for Empirical Research · PhD course, School of Business and Economics</p>
+  <p class="subtitle">Responsible use of AI · Claude Code for empirical research · PhD course, School of Business and Economics</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -288,6 +288,52 @@ Ines Wilms
 <li><strong>Verification</strong>: checking that numbers, claims and citations are true</li>
 </ul>
 <p>Today’s four blocks practise these three tasks.</p>
+</section>
+<section class="slide level2">
+<h2>Claude Code is the example, not the point</h2>
+<p>Everything we do today can also be done with other agentic AI tools: <strong>OpenAI Codex</strong>, Google’s Gemini CLI, GitHub Copilot’s agent mode, Cursor. We use Claude Code as the demonstration tool.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 29%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>What you learn today</th>
+<th>In Claude Code</th>
+<th>In other tools</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>a written memory of the project</td>
+<td><code>CLAUDE.md</code></td>
+<td><code>AGENTS.md</code> (Codex and others; Claude Code also reads it)</td>
+</tr>
+<tr class="even">
+<td>plan before acting</td>
+<td>plan mode</td>
+<td>planning, read-only or approval modes</td>
+</tr>
+<tr class="odd">
+<td>limits on what the agent may do</td>
+<td>allow/deny rules, sandbox</td>
+<td>approval and sandbox settings</td>
+</tr>
+<tr class="even">
+<td>reusable procedures</td>
+<td>skills</td>
+<td>skills, custom prompts, rules</td>
+</tr>
+<tr class="odd">
+<td>independent review</td>
+<td>subagents</td>
+<td>subagents, or a second session or model</td>
+</tr>
+</tbody>
+</table>
+<p>What carries over is the method: a written research design, a plan you review, checks that run, reviewers you have tested. The commands and file names differ.</p>
 </section>
 <section class="slide level2">
 <h2>The agentic loop</h2>
@@ -867,7 +913,7 @@ proposes             comment inline        for execution        reports         
 </tr>
 <tr class="odd">
 <td>R ≥ 4.3</td>
-<td>from <a href="https://cran.r-project.org">cran.r-project.org</a>; base R is enough for the project</td>
+<td>from <a href="https://cran.r-project.org">cran.r-project.org</a>, installed <strong>before</strong> the R extension in VS Code; base R is enough for the project</td>
 </tr>
 <tr class="even">
 <td>Quarto</td>
@@ -902,37 +948,48 @@ proposes             comment inline        for execution        reports         
 <img data-src="assets/setup/claude-download.png" style="width:85.0%" class="r-stretch"><p><a href="https://claude.com/download">claude.com/download</a>: the desktop app for macOS and Windows. It includes chat and a <strong>Code</strong> tab that runs Claude Code on a folder.</p>
 <p>We work in VS Code today. The app is a fallback if VS Code does not work on your laptop.</p>
 </section>
+<section class="slide level2 scrollable">
+<h2>Step 2 · Install R and Quarto · reference</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Install <strong>R first</strong>: the R extension for VS Code (step 5) needs it.</p>
+<ol type="1">
+<li><a href="https://cran.r-project.org">cran.r-project.org</a>: <strong>Download R for macOS</strong> or <strong>for Windows</strong></li>
+<li>Run the installer (R 4.3 or later); on Windows keep the defaults</li>
+<li><a href="https://quarto.org/docs/get-started/">quarto.org/docs/get-started</a>: download Quarto for your system and run the installer</li>
+</ol>
+</div><div class="column" style="width:55%;">
+<p><img data-src="assets/setup/cran-download.png" style="width:100.0%"></p>
+</div></div>
+</section>
 <section class="slide level2">
-<h2>Step 2 · Install VS Code · reference</h2>
+<h2>Step 3 · Install VS Code · reference</h2>
 
 <img data-src="assets/setup/vscode-download.png" style="width:85.0%" class="r-stretch"><p><a href="https://code.visualstudio.com/download">code.visualstudio.com/download</a>: click the button for your system and run the installer. <strong>macOS:</strong> drag <em>Visual Studio Code</em> into <em>Applications</em>. <strong>Windows:</strong> accept the defaults.</p>
 </section>
 <section class="slide level2">
-<h2>Step 3 · Install the Claude Code extension · reference</h2>
-<p><img data-src="assets/setup/marketplace-claude-code.png" style="width:85.0%"></p>
-<p><strong>Option A:</strong> open <a href="https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code">the Marketplace page</a> and click <strong>Install</strong>; your browser asks to open VS Code; allow it.</p>
+<h2>Step 4 · Install the Claude Code extension · reference</h2>
+
+<img data-src="assets/setup/marketplace-claude-code.png" style="width:85.0%" class="r-stretch"><p><strong>Option A:</strong> open <a href="https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code">the Marketplace page</a> and click <strong>Install</strong>; your browser asks to open VS Code; allow it.</p>
 <p><strong>Option B:</strong> inside VS Code (next slide).</p>
 <p>Check the publisher: <strong>Anthropic</strong>, with the blue check mark.</p>
-<p>Then the <strong>R</strong> extension by REditorSupport, the same way (<a href="https://marketplace.visualstudio.com/items?itemName=REditorSupport.r">Marketplace page</a>):</p>
-<p><img data-src="assets/setup/marketplace-r.png" style="width:70.0%"></p>
 </section>
 <section class="slide level2 scrollable">
-<h2>Step 3 · Option B: from inside VS Code · reference</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
+<h2>Step 4 · Option B: from inside VS Code · reference</h2>
 <ol type="1">
 <li>Click the <strong>Extensions</strong> icon in the left bar (four squares) <img data-src="assets/setup/vscode-extensions-icon.png" width="40"></li>
 <li>Type <strong>Claude Code</strong> in the search field</li>
-<li>Click <strong>Install</strong> on <em>Claude Code for VS Code</em> by Anthropic</li>
-<li>Do the same for the <strong>R</strong> extension (by REditorSupport)</li>
+<li>Click <strong>Install</strong> on <em>Claude Code for VS Code</em> by Anthropic (blue check mark)</li>
 </ol>
-</div><div class="column" style="width:60%;">
-<p><img data-src="assets/setup/vscode-extension-search.png" style="width:100.0%"></p>
-<p><span class="small muted">The image shows the search for another extension; the steps are the same.</span></p>
-</div></div>
+</section>
+<section class="slide level2">
+<h2>Step 5 · The R and Quarto extensions · reference</h2>
+
+<img data-src="assets/setup/marketplace-r.png" style="width:85.0%" class="r-stretch"><p><strong>Only after R is installed (step 2).</strong> Open the <a href="https://marketplace.visualstudio.com/items?itemName=REditorSupport.r">R extension’s Marketplace page</a> and click <strong>Install</strong>, or search <strong>R</strong> in the Extensions view and install <em>R</em> by <strong>REditorSupport</strong>. Then restart VS Code, so it finds R.</p>
+<p>Install the <strong>Quarto</strong> extension the same way (search <strong>Quarto</strong>).</p>
 </section>
 <section class="slide level2 scrollable">
-<h2>Step 4 · Open a folder · reference</h2>
+<h2>Step 6 · Open a folder · reference</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
 <p>VS Code works on <strong>folders</strong>. Claude can see everything in the folder you open, and nothing outside it.</p>
@@ -947,7 +1004,7 @@ proposes             comment inline        for execution        reports         
 </div></div>
 </section>
 <section class="slide level2 scrollable">
-<h2>Step 5 · Sign in and say hello · reference</h2>
+<h2>Step 7 · Sign in and say hello · reference</h2>
 <div class="columns">
 <div class="column" style="width:35%;">
 <ol type="1">
@@ -961,7 +1018,7 @@ proposes             comment inline        for execution        reports         
 </div></div>
 </section>
 <section class="slide level2 scrollable">
-<h2>Step 6 · Plan mode as the default · reference</h2>
+<h2>Step 8 · Plan mode as the default · reference</h2>
 <ol type="1">
 <li>Open the settings: <strong>Code → Settings → Settings</strong> (macOS) or <strong>File → Preferences → Settings</strong> (Windows)</li>
 <li>Type <strong>Claude Code initial permission mode</strong> in the search field</li>
@@ -1098,7 +1155,7 @@ proposes             comment inline        for execution        reports         
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>Claude Code for Empirical Research · SBE PhD course</p>
+<p>Responsible use of AI · SBE PhD course</p>
 </div>
 </div></div>
 
