@@ -1,0 +1,191 @@
+[
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Anthropic, Quickstart: https://code.claude.com/docs/en/quickstart\nAnthropic, Claude Code in VS Code: https://code.claude.com/docs/en/vs-code\nAnthropic, Best practices for Claude Code: https://code.claude.com/docs/en/best-practices\nAnthropic, Common workflows: https://code.claude.com/docs/en/common-workflows\nAnthropic, Memory, Skills, Subagents, Hooks: https://code.claude.com/docs/en/overview\nAnthropic Academy, Claude Code 101 and Claude Code in Action (free): https://anthropic.skilljar.com/\nIn Claude Code: /powerup for interactive lessons"
+  },
+  {
+    "objectID": "resources.html#claude-code",
+    "href": "resources.html#claude-code",
+    "title": "Resources",
+    "section": "",
+    "text": "Anthropic, Quickstart: https://code.claude.com/docs/en/quickstart\nAnthropic, Claude Code in VS Code: https://code.claude.com/docs/en/vs-code\nAnthropic, Best practices for Claude Code: https://code.claude.com/docs/en/best-practices\nAnthropic, Common workflows: https://code.claude.com/docs/en/common-workflows\nAnthropic, Memory, Skills, Subagents, Hooks: https://code.claude.com/docs/en/overview\nAnthropic Academy, Claude Code 101 and Claude Code in Action (free): https://anthropic.skilljar.com/\nIn Claude Code: /powerup for interactive lessons"
+  },
+  {
+    "objectID": "resources.html#ai-in-economic-research",
+    "href": "resources.html#ai-in-economic-research",
+    "title": "Resources",
+    "section": "AI in economic research",
+    "text": "AI in economic research\n\nKorinek, A. (2023). Generative AI for economic research: Use cases and implications for economists. Journal of Economic Literature, 61(4), 1281–1317.\nKorinek, A. (2025). AI agents for economic research. NBER Working Paper 34202.\nGoldsmith-Pinkham, P. (2026). Claude Code for applied economists. Markus Academy, episodes 162-1 and 162-2.\nRieber, A. (2026). AI coding agents for economics research. Workshop materials, Ulm University.\nXu, Y. and Yang, L. Y. (2026). Scaling reproducibility: An AI-assisted workflow for large-scale reanalysis. Working paper."
+  },
+  {
+    "objectID": "resources.html#replication-and-reproducibility",
+    "href": "resources.html#replication-and-reproducibility",
+    "title": "Resources",
+    "section": "Replication and reproducibility",
+    "text": "Replication and reproducibility\n\nAEA Data Editor, Template README for social science replication packages: https://social-science-data-editors.github.io/template_README/"
+  },
+  {
+    "objectID": "resources.html#scholarly-databases-with-free-apis",
+    "href": "resources.html#scholarly-databases-with-free-apis",
+    "title": "Resources",
+    "section": "Scholarly databases with free APIs",
+    "text": "Scholarly databases with free APIs\n\nCrossref: https://api.crossref.org (check a DOI: https://api.crossref.org/works/&lt;DOI&gt;)\nOpenAlex: https://openalex.org"
+  },
+  {
+    "objectID": "project.html",
+    "href": "project.html",
+    "title": "Project",
+    "section": "",
+    "text": "Card, D. and Krueger, A. B. (1994). Minimum wages and employment: A case study of the fast-food industry in New Jersey and Pennsylvania. American Economic Review, 84(4), 772–793.\nOn April 1, 1992, New Jersey raised its minimum wage from $4.25 to $5.05 per hour; Pennsylvania did not. The authors surveyed 410 fast-food restaurants in both states before and after the increase."
+  },
+  {
+    "objectID": "project.html#the-paper",
+    "href": "project.html#the-paper",
+    "title": "Project",
+    "section": "",
+    "text": "Card, D. and Krueger, A. B. (1994). Minimum wages and employment: A case study of the fast-food industry in New Jersey and Pennsylvania. American Economic Review, 84(4), 772–793.\nOn April 1, 1992, New Jersey raised its minimum wage from $4.25 to $5.05 per hour; Pennsylvania did not. The authors surveyed 410 fast-food restaurants in both states before and after the increase."
+  },
+  {
+    "objectID": "project.html#what-you-produce",
+    "href": "project.html#what-you-produce",
+    "title": "Project",
+    "section": "What you produce",
+    "text": "What you produce\n\n\n\n\n\n\n\n\nDeliverable\nWhere\nBlock\n\n\n\n\nA replication of Table 3 in R\nR/, output/table3.csv\n1 and 3\n\n\nA replication package that runs from a clean session\n00_master.R, README.md\n3\n\n\nA 2–4 page literature review with verified citations\nreview/review.qmd, review/refs.bib\n2–4\n\n\n5–8 slides presenting both\nslides/slides.qmd\n4\n\n\n\nAfter the course: extend the review to your own topic, and keep the configuration you built (CLAUDE.md, skills, hooks) for your own projects."
+  },
+  {
+    "objectID": "project.html#downloads",
+    "href": "project.html#downloads",
+    "title": "Project",
+    "section": "Downloads",
+    "text": "Downloads\n\n\n\nFile\nContent\nUsed in\n\n\n\n\nck-project.zip\nthe project folder you work in all day\nBlocks 1–4\n\n\nverify-lab.zip\ntwo versions of a draft review section to check\nBlock 3\n\n\n\nUnzip, then open the folder in VS Code with File → Open Folder….\nThe paper and the data are not included. You download them in Block 1 from David Card’s website:\n\nPaper: https://davidcard.berkeley.edu/papers/njmin-aer.pdf\nData, codebook and the original SAS program: https://davidcard.berkeley.edu/data_sets/njmin.zip"
+  },
+  {
+    "objectID": "project.html#your-own-paper-instead",
+    "href": "project.html#your-own-paper-instead",
+    "title": "Project",
+    "section": "Your own paper instead",
+    "text": "Your own paper instead\nYou may use your own paper if it has a public replication package, one main table you can reproduce, and data you are allowed to use with an AI tool."
+  },
+  {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "The slides contain the lab instructions. Open them in the browser; press f for full screen and Esc for an overview of all slides.\n\n\n\nBlock\nSlides\n\n\n\n\n1 · Getting started\nOpen\n\n\n2 · Customization\nOpen\n\n\n3 · Agentic coding\nOpen\n\n\n\nBlock 4 slides are published at the end of the course.\nTo print a deck or save it as PDF: add ?print-pdf to the address, then print from the browser."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Claude Code for Empirical Research",
+    "section": "",
+    "text": "Instructors: Tobias Hartl and Ines Wilms\nA one-day, hands-on course on using AI coding agents, in particular Claude Code, in empirical research. You work in Claude Code inside VS Code from the first hour, on one project that runs through the whole day."
+  },
+  {
+    "objectID": "index.html#what-you-will-be-able-to-do",
+    "href": "index.html#what-you-will-be-able-to-do",
+    "title": "Claude Code for Empirical Research",
+    "section": "What you will be able to do",
+    "text": "What you will be able to do\n\nSet up Claude Code in VS Code and choose a model, an effort level and a permission mode for a task, with plan mode as your default\nGive a project a memory, rules, permissions, skills and hooks\nDelegate work to agents with a specification and checks, and test the checks\nWrite a literature review and reproduce a published table with Claude, and verify every citation and number\nUse AI in research responsibly: data protection, disclosure, specification search"
+  },
+  {
+    "objectID": "index.html#the-project",
+    "href": "index.html#the-project",
+    "title": "Claude Code for Empirical Research",
+    "section": "The project",
+    "text": "The project\nCard and Krueger (1994) studied the employment effect of New Jersey’s 1992 minimum-wage increase by comparing fast-food restaurants in New Jersey and Pennsylvania. During the day you reproduce the paper’s main table, write a short review of the debate that followed, and present both in a few slides. Details: Project."
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "Claude Code for Empirical Research",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\n\n\n\n\nTime\nBlock\n\n\n\n\n09:00–11:00\n1 · Getting started: set-up in VS Code; models, effort, modes; plan mode; read the paper and reproduce Table 3\n\n\n11:00–11:15\nBreak\n\n\n11:15–13:15\n2 · Customization: CLAUDE.md, rules, settings and permissions, skills, hooks\n\n\n13:15–14:00\nLunch\n\n\n14:00–16:00\n3 · Agentic coding: delegation, subagents, review loops, testing your checks, replication package\n\n\n16:15–18:15\n4 · Optimal usage: context, cost, prompting, research integrity, writing and slides, a complete research configuration"
+  },
+  {
+    "objectID": "index.html#before-the-course",
+    "href": "index.html#before-the-course",
+    "title": "Claude Code for Empirical Research",
+    "section": "Before the course",
+    "text": "Before the course\nComplete the setup (about 30 minutes, no command line needed) and send the final check to the instructors. You need a paid Claude plan (Pro or higher) or a course account."
+  },
+  {
+    "objectID": "index.html#data-and-ai-use",
+    "href": "index.html#data-and-ai-use",
+    "title": "Claude Code for Empirical Research",
+    "section": "Data and AI use",
+    "text": "Data and AI use\nAnything Claude reads is sent to an external server. Do not bring confidential data (CBS microdata, administrative registers, personal data, data under an NDA) to the course; we work with public data. Follow your doctoral regulations and the journals’ policies on disclosing AI use."
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Setup before the course",
+    "section": "",
+    "text": "Complete this before the course day; it takes about 30 minutes and needs no command line. If something fails, send the instructors a screenshot of the error before the course.\n\n\nGo to claude.com/pricing, choose Pro (or higher) and create an account. The Free plan does not include Claude Code. If the course provides accounts, use the course login instead.\n\n\n\nClaude plans\n\n\nOptional: the Claude desktop app (claude.com/download) has a Code tab that runs Claude Code on a folder. It is a fallback if VS Code does not work on your laptop.\n\n\n\nDownload from code.visualstudio.com/download and install. macOS: drag Visual Studio Code into Applications. Windows: accept the defaults.\n\n\n\nVS Code download page\n\n\n\n\n\nOpen the Marketplace page and click Install (allow the browser to open VS Code). Or, inside VS Code: click the Extensions icon in the left bar, search Claude Code, and click Install on Claude Code for VS Code by Anthropic (blue check mark).\n\n\n\nClaude Code in the Marketplace\n\n\nInstall the R extension (by REditorSupport) the same way.\n\n\n\nSearching for an extension in VS Code (example: Python)\n\n\n\n\n\nInstall R 4.3 or later from cran.r-project.org. No extra packages are needed for the course project.\nInstall Quarto from quarto.org/docs/get-started (click the download for your system and run the installer), and the Quarto extension in VS Code (step 3). We use it in Block 4 to render the review and the slides.\n\n\n\nQuarto download page\n\n\n\n\n\n\nMake an empty folder, e.g. cc-test. In VS Code: File → Open Folder… (macOS: File → Open…), choose the folder, and click Yes, I trust the authors.\n\n\n\nThe trust dialog\n\n\nClick the orange Claude icon at the top right of the editor, then Sign in, and finish the login in the browser.\n\n\n\nThe Claude Code panel in VS Code\n\n\nSettings (Code → Settings → Settings on macOS, File → Preferences → Settings on Windows): search Claude Code initial permission mode and choose plan.\n\n\n\n\nType in the Claude panel:\n\nWhich versions of R and Quarto are installed? Do not install or change anything.\n\nApprove the command Claude wants to run. Send its answer to the instructors.\n\n\n\nDo not bring confidential data to the course: no microdata under a data-use agreement (e.g. CBS remote-access data), no administrative registers, no personal data. Anything Claude reads is sent to an external server. We work with public data (Card and Krueger, 1994).\n\n\n\n\nNot needed for the course. If you already use git, keep using it: commit before larger Claude tasks and review changes in VS Code’s Source Control view.\n\n\n\nClaude Code also runs in a terminal. Not needed for the course.\n# macOS, Linux, WSL\ncurl -fsSL https://claude.ai/install.sh | bash\n# Windows PowerShell\nirm https://claude.ai/install.ps1 | iex\n\nclaude --version   # check\nclaude doctor      # check installation and settings\nclaude             # start in the current folder\n\nImage credits: claude.com, code.visualstudio.com and quarto.org (screenshots, November 2026); VS Code documentation © Microsoft, CC BY 3.0; Claude Code documentation, Anthropic."
+  },
+  {
+    "objectID": "setup.html#a-claude-account",
+    "href": "setup.html#a-claude-account",
+    "title": "Setup before the course",
+    "section": "",
+    "text": "Go to claude.com/pricing, choose Pro (or higher) and create an account. The Free plan does not include Claude Code. If the course provides accounts, use the course login instead.\n\n\n\nClaude plans\n\n\nOptional: the Claude desktop app (claude.com/download) has a Code tab that runs Claude Code on a folder. It is a fallback if VS Code does not work on your laptop."
+  },
+  {
+    "objectID": "setup.html#vs-code",
+    "href": "setup.html#vs-code",
+    "title": "Setup before the course",
+    "section": "",
+    "text": "Download from code.visualstudio.com/download and install. macOS: drag Visual Studio Code into Applications. Windows: accept the defaults.\n\n\n\nVS Code download page"
+  },
+  {
+    "objectID": "setup.html#the-claude-code-extension",
+    "href": "setup.html#the-claude-code-extension",
+    "title": "Setup before the course",
+    "section": "",
+    "text": "Open the Marketplace page and click Install (allow the browser to open VS Code). Or, inside VS Code: click the Extensions icon in the left bar, search Claude Code, and click Install on Claude Code for VS Code by Anthropic (blue check mark).\n\n\n\nClaude Code in the Marketplace\n\n\nInstall the R extension (by REditorSupport) the same way.\n\n\n\nSearching for an extension in VS Code (example: Python)"
+  },
+  {
+    "objectID": "setup.html#r-and-quarto",
+    "href": "setup.html#r-and-quarto",
+    "title": "Setup before the course",
+    "section": "",
+    "text": "Install R 4.3 or later from cran.r-project.org. No extra packages are needed for the course project.\nInstall Quarto from quarto.org/docs/get-started (click the download for your system and run the installer), and the Quarto extension in VS Code (step 3). We use it in Block 4 to render the review and the slides.\n\n\n\nQuarto download page"
+  },
+  {
+    "objectID": "setup.html#open-a-folder-sign-in-set-plan-mode",
+    "href": "setup.html#open-a-folder-sign-in-set-plan-mode",
+    "title": "Setup before the course",
+    "section": "",
+    "text": "Make an empty folder, e.g. cc-test. In VS Code: File → Open Folder… (macOS: File → Open…), choose the folder, and click Yes, I trust the authors.\n\n\n\nThe trust dialog\n\n\nClick the orange Claude icon at the top right of the editor, then Sign in, and finish the login in the browser.\n\n\n\nThe Claude Code panel in VS Code\n\n\nSettings (Code → Settings → Settings on macOS, File → Preferences → Settings on Windows): search Claude Code initial permission mode and choose plan."
+  },
+  {
+    "objectID": "setup.html#final-check",
+    "href": "setup.html#final-check",
+    "title": "Setup before the course",
+    "section": "",
+    "text": "Type in the Claude panel:\n\nWhich versions of R and Quarto are installed? Do not install or change anything.\n\nApprove the command Claude wants to run. Send its answer to the instructors."
+  },
+  {
+    "objectID": "setup.html#data-rule",
+    "href": "setup.html#data-rule",
+    "title": "Setup before the course",
+    "section": "",
+    "text": "Do not bring confidential data to the course: no microdata under a data-use agreement (e.g. CBS remote-access data), no administrative registers, no personal data. Anything Claude reads is sent to an external server. We work with public data (Card and Krueger, 1994)."
+  },
+  {
+    "objectID": "setup.html#optional-git",
+    "href": "setup.html#optional-git",
+    "title": "Setup before the course",
+    "section": "",
+    "text": "Not needed for the course. If you already use git, keep using it: commit before larger Claude tasks and review changes in VS Code’s Source Control view."
+  },
+  {
+    "objectID": "setup.html#optional-the-command-line",
+    "href": "setup.html#optional-the-command-line",
+    "title": "Setup before the course",
+    "section": "",
+    "text": "Claude Code also runs in a terminal. Not needed for the course.\n# macOS, Linux, WSL\ncurl -fsSL https://claude.ai/install.sh | bash\n# Windows PowerShell\nirm https://claude.ai/install.ps1 | iex\n\nclaude --version   # check\nclaude doctor      # check installation and settings\nclaude             # start in the current folder\n\nImage credits: claude.com, code.visualstudio.com and quarto.org (screenshots, November 2026); VS Code documentation © Microsoft, CC BY 3.0; Claude Code documentation, Anthropic."
+  }
+]
