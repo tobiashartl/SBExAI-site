@@ -195,7 +195,7 @@
 
 <section data-background-color="#001c3d" class="quarto-title-block center">
   <h1 class="title">Block 1 · Getting started</h1>
-  <p class="subtitle">Responsible use of AI · Claude Code for empirical research · PhD course, School of Business and Economics</p>
+  <p class="subtitle">Responsible use of AI · Agentic AI for PhD students · School of Business and Economics</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -741,7 +741,7 @@ proposes             comment inline        for execution        reports         
 <section class="slide level2 lab">
 <h2>Task 3 · Load the data and reproduce Table 3 (12 min)</h2>
 <blockquote>
-<p>Read data/raw/public.dat into R using the column definitions in data/raw/codebook (code in R/01_read.R; report stores per state). Then reproduce rows 1, 2 and 4 of Table 3, columns (i) to (iii): mean full-time-equivalent employment per store by state, before and after, and the change in the balanced sample, with standard errors. Use the paper’s definition of FTE. Save to output/table3.csv with the published numbers in a second column.</p>
+<p>Read data/raw/public.dat using the column definitions in data/raw/codebook, in R or Python, whichever is installed (code in R/ or python/; report stores per state). Then reproduce rows 1, 2 and 4 of Table 3, columns (i) to (iii): mean full-time-equivalent employment per store by state, before and after, and the change in the balanced sample, with standard errors. Use the paper’s definition of FTE. Save to output/table3.csv with the published numbers in a second column.</p>
 </blockquote>
 <p>Check: 410 stores, 331 in New Jersey and 79 in Pennsylvania? Then against the PDF (page 780):</p>
 <ul>
@@ -904,16 +904,16 @@ proposes             comment inline        for execution        reports         
 </thead>
 <tbody>
 <tr class="odd">
-<td>A paid Claude plan, or a course account</td>
-<td>Pro, Max, Team or Enterprise. The free plan does not include Claude Code.</td>
+<td>A paid Claude plan, or a similar agentic AI tool</td>
+<td>Claude Pro or higher (the free plan does not include Claude Code); or e.g.&nbsp;OpenAI’s Codex</td>
 </tr>
 <tr class="even">
 <td>VS Code</td>
 <td>free, from Microsoft</td>
 </tr>
 <tr class="odd">
-<td>R ≥ 4.3</td>
-<td>from <a href="https://cran.r-project.org">cran.r-project.org</a>, installed <strong>before</strong> the R extension in VS Code; base R is enough for the project</td>
+<td>R, Python or Stata</td>
+<td>optional: Claude uses whatever is installed for the replication</td>
 </tr>
 <tr class="even">
 <td>Quarto</td>
@@ -928,7 +928,7 @@ proposes             comment inline        for execution        reports         
 <p>No command line is needed for any of the steps that follow. Everything is done by clicking.</p>
 </section>
 <section class="slide level2 scrollable">
-<h2>Step 1 · A Claude account · reference</h2>
+<h2>Step 1 · A Claude account (or a similar AI tool) · reference</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
 <ol type="1">
@@ -937,7 +937,7 @@ proposes             comment inline        for execution        reports         
 <li>Keep the login details at hand: you sign in once more in VS Code</li>
 </ol>
 <p>The <strong>Free</strong> plan does not include Claude Code.</p>
-<p>If the course provides accounts, use the course login instead.</p>
+<p>Alternatively: a similar agentic AI tool, e.g.&nbsp;OpenAI’s Codex (paid ChatGPT plan, also as a VS Code extension).</p>
 </div><div class="column" style="width:55%;">
 <p><img data-src="assets/setup/claude-pricing.png" style="width:100.0%"></p>
 </div></div>
@@ -948,18 +948,14 @@ proposes             comment inline        for execution        reports         
 <img data-src="assets/setup/claude-download.png" style="width:85.0%" class="r-stretch"><p><a href="https://claude.com/download">claude.com/download</a>: the desktop app for macOS and Windows. It includes chat and a <strong>Code</strong> tab that runs Claude Code on a folder.</p>
 <p>We work in VS Code today. The app is a fallback if VS Code does not work on your laptop.</p>
 </section>
-<section class="slide level2 scrollable">
-<h2>Step 2 · Install R and Quarto · reference</h2>
+<section class="slide level2">
+<h2>Step 2 · Install Quarto · reference</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
-<p>Install <strong>R first</strong>: the R extension for VS Code (step 5) needs it.</p>
-<ol type="1">
-<li><a href="https://cran.r-project.org">cran.r-project.org</a>: <strong>Download R for macOS</strong> or <strong>for Windows</strong></li>
-<li>Run the installer (R 4.3 or later); on Windows keep the defaults</li>
-<li><a href="https://quarto.org/docs/get-started/">quarto.org/docs/get-started</a>: download Quarto for your system and run the installer</li>
-</ol>
+<p><a href="https://quarto.org/docs/get-started/">quarto.org/docs/get-started</a>: download Quarto for your system and run the installer. We use it for the review and the slides.</p>
+<p>No programming language is required. If you already use R, Python or Stata, keep it: Claude uses what is on your laptop.</p>
 </div><div class="column" style="width:55%;">
-<p><img data-src="assets/setup/cran-download.png" style="width:100.0%"></p>
+<p><img data-src="assets/setup/quarto-download.png" style="width:100.0%"></p>
 </div></div>
 </section>
 <section class="slide level2">
@@ -983,10 +979,9 @@ proposes             comment inline        for execution        reports         
 </ol>
 </section>
 <section class="slide level2">
-<h2>Step 5 · The R and Quarto extensions · reference</h2>
-
-<img data-src="assets/setup/marketplace-r.png" style="width:85.0%" class="r-stretch"><p><strong>Only after R is installed (step 2).</strong> Open the <a href="https://marketplace.visualstudio.com/items?itemName=REditorSupport.r">R extension’s Marketplace page</a> and click <strong>Install</strong>, or search <strong>R</strong> in the Extensions view and install <em>R</em> by <strong>REditorSupport</strong>. Then restart VS Code, so it finds R.</p>
-<p>Install the <strong>Quarto</strong> extension the same way (search <strong>Quarto</strong>).</p>
+<h2>Step 5 · The Quarto extension · reference</h2>
+<p>Search <strong>Quarto</strong> in the Extensions view (publisher Quarto) and click <strong>Install</strong>.</p>
+<p>If you use R, also install the <strong>R</strong> extension by REditorSupport.</p>
 </section>
 <section class="slide level2 scrollable">
 <h2>Step 6 · Open a folder · reference</h2>

@@ -159,11 +159,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#setup-before-the-course" id="toc-setup-before-the-course" class="nav-link active" data-scroll-target="#setup-before-the-course">Setup before the course</a>
   <ul class="collapse">
-  <li><a href="#a-claude-account" id="toc-a-claude-account" class="nav-link" data-scroll-target="#a-claude-account">1. A Claude account</a></li>
-  <li><a href="#r-and-quarto" id="toc-r-and-quarto" class="nav-link" data-scroll-target="#r-and-quarto">2. R and Quarto</a></li>
+  <li><a href="#a-claude-account-or-a-similar-ai-tool" id="toc-a-claude-account-or-a-similar-ai-tool" class="nav-link" data-scroll-target="#a-claude-account-or-a-similar-ai-tool">1. A Claude account (or a similar AI tool)</a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">2. Quarto</a></li>
   <li><a href="#vs-code" id="toc-vs-code" class="nav-link" data-scroll-target="#vs-code">3. VS Code</a></li>
   <li><a href="#the-claude-code-extension" id="toc-the-claude-code-extension" class="nav-link" data-scroll-target="#the-claude-code-extension">4. The Claude Code extension</a></li>
-  <li><a href="#the-r-and-quarto-extensions" id="toc-the-r-and-quarto-extensions" class="nav-link" data-scroll-target="#the-r-and-quarto-extensions">5. The R and Quarto extensions</a></li>
+  <li><a href="#the-quarto-extension" id="toc-the-quarto-extension" class="nav-link" data-scroll-target="#the-quarto-extension">5. The Quarto extension</a></li>
   <li><a href="#open-a-folder-sign-in-set-plan-mode" id="toc-open-a-folder-sign-in-set-plan-mode" class="nav-link" data-scroll-target="#open-a-folder-sign-in-set-plan-mode">6. Open a folder, sign in, set plan mode</a></li>
   <li><a href="#final-check" id="toc-final-check" class="nav-link" data-scroll-target="#final-check">7. Final check</a></li>
   <li><a href="#data-rule" id="toc-data-rule" class="nav-link" data-scroll-target="#data-rule">8. Data rule</a></li>
@@ -182,9 +182,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="setup-before-the-course" class="level1">
 <h1>Setup before the course</h1>
 <p><strong>Required before the course (Tuesday 15 December 2026, 13:00).</strong> It takes about 30 minutes and needs no command line; there is no time to install during the session. If something fails, send the instructors a screenshot of the error <strong>before</strong> the course.</p>
-<section id="a-claude-account" class="level2">
-<h2 class="anchored" data-anchor-id="a-claude-account">1. A Claude account</h2>
-<p>Go to <a href="https://claude.com/pricing">claude.com/pricing</a>, choose <strong>Pro</strong> (or higher) and create an account. The <strong>Free</strong> plan does not include Claude Code. If the course provides accounts, use the course login instead.</p>
+<section id="a-claude-account-or-a-similar-ai-tool" class="level2">
+<h2 class="anchored" data-anchor-id="a-claude-account-or-a-similar-ai-tool">1. A Claude account (or a similar AI tool)</h2>
+<p>Go to <a href="https://claude.com/pricing">claude.com/pricing</a>, choose <strong>Pro</strong> (or higher) and create an account. The <strong>Free</strong> plan does not include Claude Code.</p>
+<p>You can also use a similar agentic AI tool, for example <strong>OpenAI’s Codex</strong> (with a paid ChatGPT plan), which also has a VS Code extension. Everything in the course works with such tools; we demonstrate with Claude Code, so some commands and screens look different in yours.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="slides/assets/setup/claude-pricing.png" class="img-fluid figure-img"></p>
@@ -193,23 +194,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Optional: the Claude desktop app (<a href="https://claude.com/download">claude.com/download</a>) has a <strong>Code</strong> tab that runs Claude Code on a folder. It is a fallback if VS Code does not work on your laptop.</p>
 </section>
-<section id="r-and-quarto" class="level2">
-<h2 class="anchored" data-anchor-id="r-and-quarto">2. R and Quarto</h2>
-<p>Install <strong>R first</strong>: the R extension for VS Code (step 5) needs it.</p>
-<p>Go to <a href="https://cran.r-project.org">cran.r-project.org</a>, click <strong>Download R for macOS</strong> or <strong>Download R for Windows</strong>, and run the installer (R 4.3 or later). Windows: keep the default options. No extra packages are needed for the course project.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="slides/assets/setup/cran-download.png" class="img-fluid figure-img"></p>
-<figcaption>Download R from CRAN</figcaption>
-</figure>
-</div>
-<p>Install Quarto from <a href="https://quarto.org/docs/get-started/">quarto.org/docs/get-started</a>: click the download for your system and run the installer. We use it in Block 4 to render the review and the slides.</p>
+<section id="quarto" class="level2">
+<h2 class="anchored" data-anchor-id="quarto">2. Quarto</h2>
+<p>Install Quarto from <a href="https://quarto.org/docs/get-started/">quarto.org/docs/get-started</a>: click the download for your system and run the installer. We use it to write and render the literature review and the slides.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="slides/assets/setup/quarto-download.png" class="img-fluid figure-img"></p>
 <figcaption>Quarto download page</figcaption>
 </figure>
 </div>
+<p>You do not need to install a programming language for the course. If you already use R, Python or Stata, keep it: Claude uses what is on your laptop to reproduce the paper’s table.</p>
 </section>
 <section id="vs-code" class="level2">
 <h2 class="anchored" data-anchor-id="vs-code">3. VS Code</h2>
@@ -231,16 +225,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="the-r-and-quarto-extensions" class="level2">
-<h2 class="anchored" data-anchor-id="the-r-and-quarto-extensions">5. The R and Quarto extensions</h2>
-<p>Only after R is installed (step 2): open the <a href="https://marketplace.visualstudio.com/items?itemName=REditorSupport.r">R extension’s Marketplace page</a> and click <strong>Install</strong>, or search <strong>R</strong> in the Extensions view and install <em>R</em> by <strong>REditorSupport</strong>. Then restart VS Code, so it finds R.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="slides/assets/setup/marketplace-r.png" class="img-fluid figure-img"></p>
-<figcaption>The R extension in the Marketplace</figcaption>
-</figure>
-</div>
-<p>Install the <strong>Quarto</strong> extension the same way (search <strong>Quarto</strong>, publisher Quarto).</p>
+<section id="the-quarto-extension" class="level2">
+<h2 class="anchored" data-anchor-id="the-quarto-extension">5. The Quarto extension</h2>
+<p>Install the <strong>Quarto</strong> extension the same way: search <strong>Quarto</strong> in the Extensions view (publisher Quarto) and click <strong>Install</strong>. If you use R, also install the <strong>R</strong> extension by REditorSupport.</p>
 </section>
 <section id="open-a-folder-sign-in-set-plan-mode" class="level2">
 <h2 class="anchored" data-anchor-id="open-a-folder-sign-in-set-plan-mode">6. Open a folder, sign in, set plan mode</h2>
@@ -266,7 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="final-check">7. Final check</h2>
 <p>Type in the Claude panel:</p>
 <blockquote class="blockquote">
-<p>Which versions of R and Quarto are installed? Do not install or change anything.</p>
+<p>Which of R, Python, Stata and Quarto are installed on this laptop? Do not install or change anything.</p>
 </blockquote>
 <p>Approve the command Claude wants to run. Send its answer to the instructors by <strong>TODO date</strong>.</p>
 </section>
