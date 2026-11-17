@@ -77,6 +77,34 @@
     "text": "Your own paper instead\nYou may use your own paper if it has a public replication package, one main table you can reproduce, and data you are allowed to use with an AI tool."
   },
   {
+    "objectID": "README-site.html",
+    "href": "README-site.html",
+    "title": "Responsible use of AI: Agentic AI for PhD students",
+    "section": "",
+    "text": "Course website for a hands-on PhD course at the School of Business and Economics, Maastricht University.\nWebsite: https://tobiashartl.github.io/SBExAI-site/\nInstructors: Tobias Hartl and Ines Wilms\nDate: Tuesday 15 December 2026, 13:00–17:00\n\n\nUsing AI coding agents in research, with Claude Code as the demonstration tool. The same workflow works with other agentic AI tools, such as OpenAI Codex. Students work on one project: they reproduce Table 3 of Card and Krueger (1994), write a short literature review with verified citations, and present both in a few slides.\n\n\n\n\n\n\n\n\n\n\nPage\nContent\n\n\n\n\nCourse\nschedule, learning goals, project, data and AI rules\n\n\nSetup\nrequired installation before the course, step by step with screenshots\n\n\nSlides\nthe slide decks for each block, including the lab instructions\n\n\nProject\nthe paper, the deliverables, the take-home, downloads (ck-project.zip, verify-lab.zip)\n\n\nResources\ndocumentation and further reading\n\n\n\n\n\n\nThis repository contains only the built website (HTML). It is generated from the course’s source files and replaced on every update, so do not edit files here; changes made here are overwritten.\nThe paper and data of Card and Krueger (1994) are not included; students download them from David Card’s website. Screenshots of third-party websites and documentation are credited on the Setup page."
+  },
+  {
+    "objectID": "README-site.html#what-the-course-is-about",
+    "href": "README-site.html#what-the-course-is-about",
+    "title": "Responsible use of AI: Agentic AI for PhD students",
+    "section": "",
+    "text": "Using AI coding agents in research, with Claude Code as the demonstration tool. The same workflow works with other agentic AI tools, such as OpenAI Codex. Students work on one project: they reproduce Table 3 of Card and Krueger (1994), write a short literature review with verified citations, and present both in a few slides."
+  },
+  {
+    "objectID": "README-site.html#what-is-on-the-website",
+    "href": "README-site.html#what-is-on-the-website",
+    "title": "Responsible use of AI: Agentic AI for PhD students",
+    "section": "",
+    "text": "Page\nContent\n\n\n\n\nCourse\nschedule, learning goals, project, data and AI rules\n\n\nSetup\nrequired installation before the course, step by step with screenshots\n\n\nSlides\nthe slide decks for each block, including the lab instructions\n\n\nProject\nthe paper, the deliverables, the take-home, downloads (ck-project.zip, verify-lab.zip)\n\n\nResources\ndocumentation and further reading"
+  },
+  {
+    "objectID": "README-site.html#about-this-repository",
+    "href": "README-site.html#about-this-repository",
+    "title": "Responsible use of AI: Agentic AI for PhD students",
+    "section": "",
+    "text": "This repository contains only the built website (HTML). It is generated from the course’s source files and replaced on every update, so do not edit files here; changes made here are overwritten.\nThe paper and data of Card and Krueger (1994) are not included; students download them from David Card’s website. Screenshots of third-party websites and documentation are credited on the Setup page."
+  },
+  {
     "objectID": "slides.html",
     "href": "slides.html",
     "title": "Slides",
